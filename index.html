@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Quran Academy — Illuminate Your Path</title>
+    <meta name="description" content="Al Quran Academy — Learn Quran online with expert scholars. Tajweed, Hifz & Fundamentals. 3-day free trial, no credit card required.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           RESET & ROOT
+        ============================================ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --emerald: #0F4C35; --emerald-mid: #1a6b4a; --emerald-light: #2d9c6e;
+            --gold: #C9A84C; --gold-light: #e2c27d;
+            --cream: #FAF7F0; --cream-dark: #F0EAD8;
+            --charcoal: #1C1C1E; --charcoal-mid: #3a3a3c; --muted: #8a8a8e;
+            --white: #ffffff; --border: rgba(201,168,76,0.2); --shadow-emerald: rgba(15,76,53,0.15);
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--cream-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--emerald); border-radius: 3px; }
+
+        /* ============================================
+           CUSTOM CURSOR
+        ============================================ */
+        #cursor { position: fixed; width: 12px; height: 12px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.15s ease, opacity 0.3s; transform: translate(-50%, -50%); }
+        #cursor-trail { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 9998; transition: transform 0.4s ease, opacity 0.3s; transform: translate(-50%, -50%); opacity: 0.4; }
+
+        /* ============================================
+           NAVIGATION
+        ============================================ */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 70px; display: flex; align-items: center; transition: background 0.4s, box-shadow 0.4s; }
+        nav.scrolled { background: rgba(250,247,240,0.95); backdrop-filter: blur(20px); box-shadow: 0 1px 0 var(--border), 0 4px 24px rgba(0,0,0,0.06); }
+        .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; }
+        .logo-mark { width: 38px; height: 38px; background: linear-gradient(135deg, var(--emerald), var(--emerald-light)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 4px 12px var(--shadow-emerald); }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--emerald); }
+        .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+        .nav-links a { text-decoration: none; font-size: 0.9rem; font-weight: 500; color: var(--charcoal-mid); position: relative; transition: color 0.3s; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: width 0.3s; }
+        .nav-links a:hover { color: var(--emerald); }
+        .nav-links a:hover::after { width: 100%; }
+        .btn-nav { background: var(--emerald); color: var(--cream); padding: 0.55rem 1.4rem; border-radius: 8px; font-size: 0.875rem; font-weight: 500; border: none; cursor: pointer; transition: background 0.3s, transform 0.2s, box-shadow 0.3s; }
+        .btn-nav:hover { background: var(--emerald-mid); transform: translateY(-1px); box-shadow: 0 6px 20px var(--shadow-emerald); }
+
+        /* ============================================
+           HERO
+        ============================================ */
+        .hero { min-height: 100vh; position: relative; background: linear-gradient(160deg, var(--emerald) 0%, #0a3323 60%, #071f15 100%); overflow: hidden; display: flex; align-items: center; }
+        .hero-pattern { position: absolute; inset: 0; opacity: 0.04; background-image: radial-gradient(circle at 20% 50%, var(--gold) 1px, transparent 1px), radial-gradient(circle at 80% 20%, var(--gold) 1px, transparent 1px); background-size: 60px 60px, 80px 80px; }
+        .hero-glow { position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); top: -100px; right: -100px; pointer-events: none; }
+        .hero-glow-2 { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(45,156,110,0.12) 0%, transparent 70%); bottom: -50px; left: -50px; pointer-events: none; }
+        .hero-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding-top: 70px; }
+        .hero-text { position: relative; z-index: 2; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); font-size: 0.8rem; font-weight: 500; padding: 6px 14px; border-radius: 20px; margin-bottom: 1.5rem; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+        .hero-eyebrow span { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+        .hero-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.1; font-weight: 600; color: var(--cream); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.35s forwards; }
+        .hero-h1 em { color: var(--gold); font-style: normal; }
+        .hero-sub { font-size: 1.05rem; color: rgba(250,247,240,0.7); margin-bottom: 2.5rem; max-width: 460px; line-height: 1.8; opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+        .hero-cta { display: flex; gap: 1rem; align-items: center; opacity: 0; animation: fadeUp 0.8s 0.65s forwards; }
+        .btn-primary { background: var(--gold); color: var(--charcoal); padding: 0.9rem 2rem; border-radius: 10px; font-size: 0.95rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(201,168,76,0.3); }
+        .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.4); }
+        .btn-secondary { background: transparent; color: var(--cream); padding: 0.9rem 2rem; border-radius: 10px; font-size: 0.95rem; font-weight: 500; border: 1px solid rgba(250,247,240,0.25); cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .btn-secondary:hover { background: rgba(250,247,240,0.08); border-color: rgba(250,247,240,0.5); }
+        .hero-visual { position: relative; z-index: 2; opacity: 0; animation: fadeLeft 0.9s 0.4s forwards; }
+        .hero-card-stack { position: relative; padding: 2rem 0; }
+        .hero-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(201,168,76,0.2); border-radius: 20px; padding: 1.5rem 2rem; margin-bottom: 1rem; transition: transform 0.3s; }
+        .hero-card:hover { transform: translateX(8px); }
+        .hc-label { font-size: 0.75rem; color: var(--gold-light); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; margin-bottom: 6px; }
+        .hc-value { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--cream); font-weight: 600; }
+        .hc-sub { font-size: 0.8rem; color: rgba(250,247,240,0.5); margin-top: 4px; }
+        .hc-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; margin-top: 10px; overflow: hidden; }
+        .hc-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--emerald-light)); border-radius: 2px; animation: growBar 2s 1.2s ease-out forwards; transform-origin: left; transform: scaleX(0); }
+        @keyframes growBar { to { transform: scaleX(1); } }
+        .hc-avatar-row { display: flex; gap: 6px; margin-top: 10px; }
+        .hc-avatar { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--emerald); font-size: 14px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; }
+        .hc-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(45,156,110,0.2); border: 1px solid rgba(45,156,110,0.4); color: #5de8a4; font-size: 0.75rem; padding: 4px 10px; border-radius: 20px; margin-top: 10px; }
+        .hc-badge::before { content: '●'; font-size: 8px; color: #5de8a4; }
+        .free-trial-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); font-size: 0.82rem; font-weight: 600; padding: 8px 16px; border-radius: 20px; margin-bottom: 1.5rem; letter-spacing: 0.04em; opacity: 0; animation: fadeUp 0.8s 0.15s forwards; }
+        .free-trial-badge .trial-tag { background: var(--gold); color: var(--charcoal); font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+        /* ============================================
+           STATS STRIP
+        ============================================ */
+        .stats-strip { background: var(--white); border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 3rem 0; }
+        .stats-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; text-align: center; }
+        .stat-item { padding: 1rem 2rem; border-right: 1px solid rgba(0,0,0,0.07); opacity: 0; animation: fadeUp 0.6s ease forwards; }
+        .stat-item:last-child { border-right: none; }
+        .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--emerald); line-height: 1; margin-bottom: 6px; }
+        .stat-label { font-size: 0.875rem; color: var(--muted); font-weight: 500; }
+
+        /* ============================================
+           SECTIONS SHARED
+        ============================================ */
+        section { padding: 5rem 0; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .section-label { display: inline-block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; color: var(--gold); background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2); padding: 5px 14px; border-radius: 20px; margin-bottom: 1rem; }
+        .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 600; color: var(--charcoal); line-height: 1.2; margin-bottom: 1rem; }
+        .section-title em { color: var(--emerald); font-style: normal; }
+        .section-sub { font-size: 1rem; color: var(--muted); max-width: 520px; line-height: 1.8; }
+        .section-head { margin-bottom: 3.5rem; }
+
+        /* ============================================
+           COURSES
+        ============================================ */
+        #courses { background: var(--cream); }
+        .courses-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .course-card { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-radius: 18px; overflow: hidden; transition: transform 0.35s, box-shadow 0.35s; cursor: pointer; opacity: 0; animation: fadeUp 0.6s ease forwards; }
+        .course-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(15,76,53,0.12); }
+        .course-card.bundle { border: 2px solid var(--gold); position: relative; }
+        .course-card.hifz { border: 2px solid var(--emerald); position: relative; }
+        .bundle-ribbon { position: absolute; top: 14px; right: -1px; background: var(--gold); color: var(--charcoal); font-size: 0.7rem; font-weight: 700; padding: 4px 14px 4px 10px; border-radius: 4px 0 0 4px; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: -2px 2px 8px rgba(0,0,0,0.12); }
+        .hifz-ribbon { position: absolute; top: 14px; right: -1px; background: var(--emerald); color: var(--cream); font-size: 0.7rem; font-weight: 700; padding: 4px 14px 4px 10px; border-radius: 4px 0 0 4px; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: -2px 2px 8px rgba(0,0,0,0.12); }
+        .course-img { height: 140px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+        .course-img-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,76,53,0.15), rgba(201,168,76,0.15)); }
+        .course-img-bg.hifz-bg { background: linear-gradient(135deg, rgba(15,76,53,0.28), rgba(15,76,53,0.08)); }
+        .course-body { padding: 1.5rem; }
+        .course-level { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; margin-bottom: 0.75rem; }
+        .level-beginner { background: rgba(45,156,110,0.12); color: #1a6b4a; }
+        .level-intermediate { background: rgba(201,168,76,0.12); color: #9a7a2c; }
+        .level-advanced { background: rgba(200,60,60,0.1); color: #a03030; }
+        .level-bundle { background: rgba(201,168,76,0.18); color: #7a5a1a; }
+        .level-hifz { background: rgba(15,76,53,0.12); color: var(--emerald); }
+        .course-title-txt { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--charcoal); margin-bottom: 4px; line-height: 1.3; }
+        .course-instructor-txt { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; }
+        .course-stars { display: flex; align-items: center; gap: 4px; margin-bottom: 0.75rem; }
+        .star-filled { color: var(--gold); } .star-empty { color: var(--cream-dark); }
+        .course-rating-num { font-size: 0.82rem; font-weight: 600; color: var(--charcoal-mid); }
+        .course-reviews { font-size: 0.75rem; color: var(--muted); }
+        .course-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .course-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.05); }
+        .course-price { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--emerald); }
+        .btn-enroll { background: var(--emerald); color: var(--cream); padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.85rem; font-weight: 500; border: none; cursor: pointer; transition: all 0.3s; }
+        .btn-enroll:hover { background: var(--emerald-mid); transform: scale(1.04); }
+        .courses-center { text-align: center; }
+        .btn-outline-green { background: transparent; color: var(--emerald); padding: 0.9rem 2rem; border-radius: 10px; border: 1.5px solid var(--emerald); font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-outline-green:hover { background: var(--emerald); color: var(--cream); }
+
+        /* ============================================
+           WHY US
+        ============================================ */
+        #why-us { background: var(--white); }
+        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .feature-card { background: var(--cream); border: 1px solid rgba(0,0,0,0.05); border-radius: 18px; padding: 2rem 1.5rem; text-align: center; transition: all 0.35s; cursor: pointer; position: relative; overflow: hidden; opacity: 0; animation: fadeUp 0.6s ease forwards; }
+        .feature-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--emerald), var(--gold)); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+        .feature-card:hover { background: var(--white); transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-icon-wrap { width: 60px; height: 60px; margin: 0 auto 1.2rem; background: linear-gradient(135deg, rgba(15,76,53,0.08), rgba(201,168,76,0.08)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; transition: transform 0.3s; }
+        .feature-card:hover .feature-icon-wrap { transform: scale(1.1) rotate(5deg); }
+        .feature-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--charcoal); margin-bottom: 0.5rem; }
+        .feature-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+        /* ============================================
+           TESTIMONIALS
+        ============================================ */
+        #testimonials { background: var(--cream); }
+        .testimonials-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .testimonial-main { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-radius: 22px; padding: 2.5rem; position: relative; min-height: 280px; overflow: hidden; }
+        .quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 8rem; line-height: 0.7; color: rgba(201,168,76,0.15); font-weight: 700; position: absolute; top: 1.5rem; left: 1.5rem; pointer-events: none; user-select: none; }
+        .testimonial-text { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-style: italic; color: var(--charcoal); line-height: 1.7; margin-bottom: 1.5rem; padding-top: 1rem; position: relative; z-index: 1; min-height: 120px; transition: opacity 0.4s, transform 0.4s; }
+        .testimonial-stars { display: flex; gap: 4px; margin-bottom: 1.2rem; }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--emerald), var(--emerald-light)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border: 2px solid rgba(201,168,76,0.3); }
+        .author-name { font-weight: 600; font-size: 0.95rem; color: var(--charcoal); margin-bottom: 2px; }
+        .author-role { font-size: 0.8rem; color: var(--muted); }
+        .testimonial-controls { display: flex; gap: 0.75rem; margin-top: 1.5rem; align-items: center; }
+        .ctrl-btn { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.1); background: var(--white); cursor: pointer; font-size: 1rem; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+        .ctrl-btn:hover { background: var(--emerald); color: var(--cream); border-color: var(--emerald); }
+        .ctrl-dots { display: flex; gap: 6px; align-items: center; }
+        .ctrl-dot { width: 8px; height: 8px; border-radius: 4px; background: rgba(0,0,0,0.12); cursor: pointer; transition: all 0.3s; border: none; }
+        .ctrl-dot.active { background: var(--emerald); width: 24px; }
+        .testimonials-sidebar { display: flex; flex-direction: column; gap: 1rem; }
+        .testimonial-mini { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-radius: 14px; padding: 1.2rem 1.5rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 1rem; }
+        .testimonial-mini:hover, .testimonial-mini.active { border-color: rgba(15,76,53,0.3); box-shadow: 0 8px 24px rgba(15,76,53,0.08); transform: translateX(6px); }
+        .testimonial-mini.active { border-color: var(--emerald); }
+        .mini-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--emerald), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+        .mini-name { font-size: 0.9rem; font-weight: 600; color: var(--charcoal); }
+        .mini-role { font-size: 0.75rem; color: var(--muted); }
+        .mini-snippet { font-size: 0.78rem; color: var(--muted); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* ============================================
+           CTA
+        ============================================ */
+        .cta-section { background: linear-gradient(140deg, var(--emerald) 0%, #071f15 100%); padding: 5rem 0; position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 60%); }
+        .cta-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; gap: 3rem; position: relative; z-index: 1; }
+        .cta-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 600; color: var(--cream); line-height: 1.2; margin-bottom: 1rem; }
+        .cta-text p { font-size: 1rem; color: rgba(250,247,240,0.65); max-width: 420px; }
+        .cta-note { font-size: 0.8rem; color: rgba(250,247,240,0.4); margin-top: 1.5rem; }
+        .cta-actions { display: flex; flex-direction: column; gap: 1rem; align-items: flex-end; }
+        .btn-gold { background: var(--gold); color: var(--charcoal); padding: 1rem 2.2rem; border-radius: 10px; font-size: 1rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s; white-space: nowrap; box-shadow: 0 4px 20px rgba(201,168,76,0.3); display: flex; align-items: center; gap: 8px; }
+        .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.4); }
+        .btn-ghost { background: transparent; color: var(--cream); padding: 1rem 2.2rem; border-radius: 10px; font-size: 1rem; font-weight: 500; border: 1px solid rgba(250,247,240,0.2); cursor: pointer; transition: all 0.3s; white-space: nowrap; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .btn-ghost:hover { background: rgba(250,247,240,0.06); border-color: rgba(250,247,240,0.4); }
+
+        /* ============================================
+           FOOTER
+        ============================================ */
+        footer { background: var(--charcoal); color: rgba(250,247,240,0.7); padding: 4rem 0 2rem; }
+        .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-brand .logo-text { color: rgba(250,247,240,0.9); }
+        .footer-brand p { font-size: 0.875rem; line-height: 1.7; }
+        .footer-col h4 { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; color: rgba(250,247,240,0.4); margin-bottom: 1.2rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.6rem; }
+        .footer-col a { color: rgba(250,247,240,0.65); text-decoration: none; font-size: 0.875rem; transition: color 0.3s; }
+        .footer-col a:hover { color: var(--gold-light); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .footer-bottom p { font-size: 0.8rem; }
+
+        /* ============================================
+           WHATSAPP BUTTON
+        ============================================ */
+        .whatsapp-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.6rem; box-shadow: 0 4px 20px rgba(37,211,102,0.35); z-index: 200; transition: all 0.3s; animation: waPulse 2.5s infinite; }
+        .whatsapp-btn:hover { transform: scale(1.12); box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+        @keyframes waPulse { 0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.35); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.6); } }
+
+        /* ============================================
+           MODAL
+        ============================================ */
+        .modal-overlay { position: fixed; inset: 0; z-index: 500; background: rgba(15,76,53,0.7); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+        .modal-overlay.open { opacity: 1; pointer-events: all; }
+        .modal { background: var(--white); border-radius: 22px; padding: 2.5rem; max-width: 480px; width: 90%; transform: translateY(20px) scale(0.97); transition: all 0.3s; }
+        .modal-overlay.open .modal { transform: none; }
+        .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+        .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--charcoal); }
+        .modal-close { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.1); background: var(--cream); cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .modal-close:hover { background: var(--charcoal); color: var(--cream); }
+        .trial-banner { background: linear-gradient(135deg, rgba(15,76,53,0.08), rgba(201,168,76,0.08)); border: 1px solid rgba(201,168,76,0.25); border-radius: 12px; padding: 0.9rem 1.2rem; display: flex; align-items: center; gap: 10px; margin-bottom: 1.4rem; }
+        .trial-banner-icon { font-size: 1.4rem; }
+        .trial-banner-text { font-size: 0.85rem; color: var(--charcoal-mid); line-height: 1.5; }
+        .trial-banner-text strong { color: var(--emerald); }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--charcoal-mid); margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+        .form-group input, .form-group select { width: 100%; padding: 0.8rem 1rem; border: 1.5px solid rgba(0,0,0,0.1); border-radius: 10px; font-size: 0.95rem; font-family: inherit; transition: border-color 0.3s, box-shadow 0.3s; background: var(--cream); outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--emerald); box-shadow: 0 0 0 3px rgba(15,76,53,0.1); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .btn-submit { width: 100%; background: var(--emerald); color: var(--cream); padding: 1rem; border-radius: 10px; border: none; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-top: 0.5rem; }
+        .btn-submit:hover { background: var(--emerald-mid); transform: translateY(-1px); }
+
+        /* ============================================
+           TOAST
+        ============================================ */
+        .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--charcoal); color: var(--cream); padding: 1rem 1.5rem; border-radius: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; z-index: 600; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+        .toast-icon { font-size: 1.2rem; }
+
+        /* ============================================
+           ANIMATIONS
+        ============================================ */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ============================================
+           RESPONSIVE
+        ============================================ */
+        @media (max-width: 1200px) { .courses-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1024px) { .features-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; padding-top: 80px; }
+            .hero-visual { display: none; }
+            .stats-inner { grid-template-columns: 1fr; }
+            .stat-item { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.07); }
+            .stat-item:last-child { border-bottom: none; }
+            .courses-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .testimonials-layout { grid-template-columns: 1fr; }
+            .testimonials-sidebar { flex-direction: row; overflow-x: auto; }
+            .testimonial-mini { min-width: 220px; }
+            .cta-inner { flex-direction: column; text-align: center; }
+            .cta-actions { align-items: center; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .nav-links a { display: none; }
+            #cursor, #cursor-trail { display: none; }
+        }
+    </style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="logo">
+            <div class="logo-mark">📖</div>
+            <span class="logo-text">Al Quran Academy</span>
+        </a>
+        <div class="nav-links">
+            <a href="#courses">Courses</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#testimonials">Testimonials</a>
+            <button class="btn-nav" onclick="openModal('trial')">Start Free Trial</button>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-pattern"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="free-trial-badge"><span class="trial-tag">FREE</span> 3-Day Free Trial — No Credit Card Required</div>
+            <div class="hero-eyebrow"><span></span> Trusted by 928+ students globally</div>
+            <h1 class="hero-h1">Illuminate Your Path to <em>Quranic Mastery</em></h1>
+            <p class="hero-sub">Learn from expert scholars in an interactive, supportive environment. Master Tajweed, memorization, and Quranic understanding at your own pace.</p>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="openModal('trial')">Start Free Trial <span>→</span></button>
+                <button class="btn-secondary" onclick="playDemo()">▶ Watch Demo</button>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-card-stack">
+                <div class="hero-card">
+                    <div class="hc-label">Active Learners</div>
+                    <div class="hc-value" id="h-count">928</div>
+                    <div class="hc-sub">Students learning right now</div>
+                    <div class="hc-avatar-row">
+                        <div class="hc-avatar">👩</div><div class="hc-avatar">👨</div>
+                        <div class="hc-avatar">👩‍💻</div><div class="hc-avatar">👨‍🎓</div>
+                        <div class="hc-avatar" style="font-size:11px;color:rgba(250,247,240,0.5)">+900</div>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="hc-label">Course Completion Rate</div>
+                    <div class="hc-value">94.7%</div>
+                    <div class="hc-bar"><div class="hc-fill" style="width:94.7%"></div></div>
+                </div>
+                <div class="hero-card">
+                    <div class="hc-label">Platform Status</div>
+                    <div class="hc-value" style="font-size:1.1rem;">Classes Live 24/7</div>
+                    <div class="hc-badge">Live Sessions Available</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+    <div class="stats-inner">
+        <div class="stat-item reveal"><div class="stat-num" id="count-students">0</div><div class="stat-label">Students Worldwide</div></div>
+        <div class="stat-item reveal" style="animation-delay:0.1s"><div class="stat-num" id="count-courses">0</div><div class="stat-label">Expert Courses</div></div>
+        <div class="stat-item reveal" style="animation-delay:0.2s"><div class="stat-num" id="count-instructors">0</div><div class="stat-label">Qualified Instructors</div></div>
+    </div>
+</div>
+
+<!-- COURSES -->
+<section id="courses">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="section-label">Our Curriculum</div>
+            <h2 class="section-title">Featured <em>Courses</em></h2>
+            <p class="section-sub">Start your Quranic journey with our most popular and highly-rated courses.</p>
+        </div>
+        <div class="courses-grid" id="courses-grid"></div>
+        <div class="courses-center reveal">
+            <button class="btn-outline-green" onclick="showToast('🎓 Full catalog coming soon!')">View All Courses <span>→</span></button>
+        </div>
+    </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="section-label">Why Choose Us</div>
+            <h2 class="section-title">The <em>Al Quran Academy</em> Difference</h2>
+            <p class="section-sub">Experience a modern approach to Islamic education built on scholarship, technology, and community.</p>
+        </div>
+        <div class="features-grid" id="features-grid"></div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="section-label">Student Stories</div>
+            <h2 class="section-title">Words from Our <em>Learners</em></h2>
+        </div>
+        <div class="testimonials-layout reveal">
+            <div>
+                <div class="testimonial-main">
+                    <div class="quote-mark">"</div>
+                    <div class="testimonial-stars" id="t-stars"></div>
+                    <p class="testimonial-text" id="t-text"></p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" id="t-avatar"></div>
+                        <div><div class="author-name" id="t-name"></div><div class="author-role" id="t-role"></div></div>
+                    </div>
+                    <div class="testimonial-controls">
+                        <button class="ctrl-btn" onclick="prevT()">←</button>
+                        <div class="ctrl-dots" id="t-dots"></div>
+                        <button class="ctrl-btn" onclick="nextT()">→</button>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-sidebar" id="t-sidebar"></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+    <div class="cta-inner">
+        <div class="cta-text reveal">
+            <h2>Ready to Begin Your Journey?</h2>
+            <p>Join students across the globe. Start your 3-day free trial — no credit card required.</p>
+            <p class="cta-note">✓ 3-day free trial &nbsp;·&nbsp; ✓ Start in minutes &nbsp;·&nbsp; ✓ Cancel anytime</p>
+        </div>
+        <div class="cta-actions reveal">
+            <button class="btn-gold" onclick="openModal('trial')">Get 3-Day Free Trial →</button>
+            <a href="https://wa.me/923430565179?text=Assalamu%20Alaikum!%20I%27m%20interested%20in%20learning%20Quran%20at%20Al%20Quran%20Academy." target="_blank" rel="noopener" class="btn-ghost">💬 Chat on WhatsApp</a>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo"><div class="logo-mark">📖</div><span class="logo-text">Al Quran Academy</span></a>
+                <p style="margin-top:1rem;">Illuminating the path to Quranic mastery through modern, accessible Islamic education.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Platform</h4>
+                <ul><li><a href="#courses">Courses</a></li><li><a href="#why-us">Instructors</a></li><li><a href="#">Schedule</a></li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="https://wa.me/923430565179" target="_blank">Contact via WhatsApp</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li><li><a href="#">Cookie Policy</a></li></ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Al Quran Academy. All rights reserved.</p>
+            <p style="color:rgba(250,247,240,0.35);font-size:0.75rem;">Illuminating Islamic Education</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/923430565179?text=Assalamu%20Alaikum!%20I%27m%20interested%20in%20learning%20Quran%20at%20Al%20Quran%20Academy." target="_blank" rel="noopener" class="whatsapp-btn" title="Chat on WhatsApp">💬</a>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-trial" onclick="closeModal(event,'trial')">
+    <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+            <div class="modal-title">Start Free Trial</div>
+            <button class="modal-close" onclick="closeModalById('trial')">✕</button>
+        </div>
+        <div class="trial-banner">
+            <span class="trial-banner-icon">🎁</span>
+            <div class="trial-banner-text"><strong>3 Days Free</strong> — Full access, no credit card, cancel anytime.</div>
+        </div>
+        <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="Ahmad"></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Ali"></div>
+        </div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"></div>
+        <div class="form-group"><label>WhatsApp Number</label><input type="tel" placeholder="+92 343 0565179"></div>
+        <div class="form-group">
+            <label>I want to learn</label>
+            <select>
+                <option>Quran Fundamentals</option>
+                <option>Tajweed Rules</option>
+                <option>Quran Memorization (Hifz)</option>
+                <option>Fundamentals + Tajweed Bundle</option>
+            </select>
+        </div>
+        <button class="btn-submit" onclick="handleTrial()">Get 3-Day Free Access →</button>
+        <p style="text-align:center;font-size:0.78rem;color:var(--muted);margin-top:1rem;">No credit card · Cancel anytime · Our team will contact you via WhatsApp</p>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><span class="toast-icon" id="toast-icon">✅</span><span id="toast-msg">Success!</span></div>
+
+<script>
+    const WA = '923430565179';
+
+    // ============================================
+    // DATA
+    // ============================================
+    const COURSES = [
+        { title: "Quran Fundamentals for Beginners", instructor: "Sheikh Ahmed Al-Mansouri", rating: 4.9, reviews: 324, level: "Beginner", students: 2150, desc: "Start your Quranic journey with foundational knowledge and proper recitation techniques.", emoji: "🌱", isFree: true },
+        { title: "Tajweed Mastery Course", instructor: "Ustadha Fatima Al-Zahra", rating: 4.8, reviews: 287, level: "Intermediate", students: 1840, desc: "Master the rules of proper Quranic recitation with detailed, step-by-step explanations.", emoji: "📿", isFree: true },
+        { title: "Quran Memorization (Hifz)", instructor: "Sheikh Yusuf Al-Hafiz", rating: 4.9, reviews: 198, price: 69, level: "Hifz", students: 743, desc: "A structured, teacher-guided Hifz program to memorize the Quran with proper Tajweed and proven retention techniques.", emoji: "🕌", isHifz: true },
+        { title: "Fundamentals + Tajweed Bundle", instructor: "Sheikh Ahmed & Ustadha Fatima", rating: 4.95, reviews: 412, price: 59, level: "Bundle", students: 956, desc: "Quran Fundamentals + Tajweed Mastery — both courses in one discounted package.", emoji: "🏅", isBundle: true }
+    ];
+
+    const FEATURES = [
+        { icon: "🏆", name: "Expert Instructors", desc: "Learn from qualified Islamic scholars with decades of teaching experience." },
+        { icon: "📖", name: "Rich Curriculum", desc: "From basics to advanced Tajweed and Hifz programs — a complete Quranic education." },
+        { icon: "🎁", name: "3-Day Free Trial", desc: "Try any course free for 3 days. No credit card, no commitment — just learning." },
+        { icon: "⭐", name: "Proven Results", desc: "98% student satisfaction rate with measurable, trackable progress." }
+    ];
+
+    const TESTIMONIALS = [
+        { name: "Aisha Mohammed", role: "Student from Malaysia", emoji: "👩‍🎓", rating: 5, text: "Al Quran Academy transformed my Quranic learning experience completely. The instructors are incredibly knowledgeable and patient. I've made remarkable progress in just three months!" },
+        { name: "Hassan Ali", role: "Parent from United Kingdom", emoji: "👨‍👧‍👦", rating: 5, text: "My children absolutely love the interactive lessons. The platform is user-friendly and the progress tracking helps me stay involved in their beautiful learning journey." },
+        { name: "Layla Ibrahim", role: "Hafiza from Egypt", emoji: "👩‍🏫", rating: 4.8, text: "The Tajweed course is exceptional. I've improved my recitation significantly. The detailed breakdowns of each rule make everything crystal clear and understandable." }
+    ];
+
+    // ============================================
+    // CUSTOM CURSOR
+    // ============================================
+    const cursor = document.getElementById('cursor');
+    const trail = document.getElementById('cursor-trail');
+    let mx = 0, my = 0, tx = 0, ty = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+    function animateTrail() { tx += (mx-tx)*0.12; ty += (my-ty)*0.12; trail.style.left = tx+'px'; trail.style.top = ty+'px'; requestAnimationFrame(animateTrail); }
+    animateTrail();
+    document.querySelectorAll('button,a,.course-card,.feature-card,.testimonial-mini').forEach(el => {
+        el.addEventListener('mouseenter', () => { cursor.style.transform='translate(-50%,-50%) scale(2)'; trail.style.transform='translate(-50%,-50%) scale(1.5)'; });
+        el.addEventListener('mouseleave', () => { cursor.style.transform='translate(-50%,-50%) scale(1)'; trail.style.transform='translate(-50%,-50%) scale(1)'; });
+    });
+
+    // ============================================
+    // NAVBAR SCROLL
+    // ============================================
+    window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30); });
+
+    // ============================================
+    // RENDER COURSES
+    // ============================================
+    function renderCourses() {
+        document.getElementById('courses-grid').innerHTML = COURSES.map((c, i) => {
+            const levelClass = { Beginner:'level-beginner', Intermediate:'level-intermediate', Advanced:'level-advanced', Bundle:'level-bundle', Hifz:'level-hifz' }[c.level];
+            const stars = [...Array(5)].map((_,si) => `<span class="${si < Math.floor(c.rating) ? 'star-filled':'star-empty'}">★</span>`).join('');
+            let priceHTML='', btnHTML='', cardClass='', ribbon='', imgBgClass='';
+            if (c.isBundle) {
+                cardClass=' bundle'; ribbon=`<div class="bundle-ribbon">Best Value</div>`;
+                priceHTML=`<div class="course-price">$${c.price}</div>`;
+                btnHTML=`<button class="btn-enroll" onclick="event.stopPropagation();openModal('trial')">Get Bundle →</button>`;
+            } else if (c.isHifz) {
+                cardClass=' hifz'; ribbon=`<div class="hifz-ribbon">Premium</div>`; imgBgClass=' hifz-bg';
+                priceHTML=`<div class="course-price">$${c.price}</div>`;
+                btnHTML=`<button class="btn-enroll" onclick="event.stopPropagation();enrollHifz()">Enroll →</button>`;
+            } else {
+                priceHTML=`<div style="display:flex;flex-direction:column;line-height:1.1"><span style="font-size:0.72rem;font-weight:600;color:var(--emerald-light);text-transform:uppercase;letter-spacing:0.06em;">Free Trial</span><span class="course-price" style="font-size:1.25rem;">3 Days Free</span></div>`;
+                btnHTML=`<button class="btn-enroll" onclick="event.stopPropagation();openModal('trial')">Try Free →</button>`;
+            }
+            return `<div class="course-card${cardClass} reveal" style="transition-delay:${i*0.12}s;position:relative;">${ribbon}
+                <div class="course-img"><div class="course-img-bg${imgBgClass}"></div><span style="position:relative;z-index:1">${c.emoji}</span></div>
+                <div class="course-body">
+                    <span class="course-level ${levelClass}">${c.level}</span>
+                    <div class="course-title-txt">${c.title}</div>
+                    <div class="course-instructor-txt">${c.instructor}</div>
+                    <div class="course-stars">${stars}<span class="course-rating-num">${c.rating}</span><span class="course-reviews">(${c.reviews} reviews)</span></div>
+                    <p class="course-desc">${c.desc}</p>
+                    <div class="course-footer">${priceHTML}${btnHTML}</div>
+                </div></div>`;
+        }).join('');
+    }
+
+    // ============================================
+    // RENDER FEATURES
+    // ============================================
+    function renderFeatures() {
+        document.getElementById('features-grid').innerHTML = FEATURES.map((f,i) =>
+            `<div class="feature-card reveal" style="transition-delay:${i*0.1}s"><div class="feature-icon-wrap">${f.icon}</div><div class="feature-name">${f.name}</div><p class="feature-desc">${f.desc}</p></div>`
+        ).join('');
+    }
+
+    // ============================================
+    // TESTIMONIALS
+    // ============================================
+    let tIdx = 0;
+    function renderTestimonials() {
+        const t = TESTIMONIALS[tIdx];
+        const stars = [...Array(5)].map((_,i) => `<span style="color:${i<Math.floor(t.rating)?'var(--gold)':'rgba(0,0,0,0.1)'}">★</span>`).join('');
+        const textEl = document.getElementById('t-text');
+        textEl.style.opacity='0'; textEl.style.transform='translateY(10px)';
+        setTimeout(() => {
+            document.getElementById('t-stars').innerHTML = stars;
+            textEl.textContent = `"${t.text}"`;
+            document.getElementById('t-name').textContent = t.name;
+            document.getElementById('t-role').textContent = t.role;
+            document.getElementById('t-avatar').textContent = t.emoji;
+            textEl.style.opacity='1'; textEl.style.transform='translateY(0)';
+            document.getElementById('t-dots').innerHTML = TESTIMONIALS.map((_,i) => `<button class="ctrl-dot${i===tIdx?' active':''}" onclick="goT(${i})"></button>`).join('');
+            document.getElementById('t-sidebar').innerHTML = TESTIMONIALS.map((st,i) =>
+                `<div class="testimonial-mini${i===tIdx?' active':''}" onclick="goT(${i})"><div class="mini-avatar">${st.emoji}</div><div><div class="mini-name">${st.name}</div><div class="mini-role">${st.role}</div><div class="mini-snippet">${st.text.substring(0,60)}...</div></div></div>`
+            ).join('');
+        }, 150);
+    }
+    function nextT() { tIdx=(tIdx+1)%TESTIMONIALS.length; renderTestimonials(); }
+    function prevT() { tIdx=(tIdx-1+TESTIMONIALS.length)%TESTIMONIALS.length; renderTestimonials(); }
+    function goT(i) { tIdx=i; renderTestimonials(); }
+    setInterval(nextT, 6000);
+    document.addEventListener('keydown', e => { if(e.key==='ArrowRight') nextT(); if(e.key==='ArrowLeft') prevT(); });
+
+    // ============================================
+    // COUNTER ANIMATION — 928 students, not 50k
+    // ============================================
+    function animateCounter(el, target, suffix, duration) {
+        let start=0, step=target/(duration/16);
+        const timer=setInterval(()=>{ start=Math.min(start+step,target); el.textContent=Math.floor(start).toLocaleString()+suffix; if(start>=target) clearInterval(timer); },16);
+    }
+
+    // ============================================
+    // INTERSECTION OBSERVER
+    // ============================================
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                if (entry.target.classList.contains('stat-item')) {
+                    const id = entry.target.querySelector('[id]')?.id;
+                    if(id==='count-students') animateCounter(document.getElementById('count-students'),928,'+',1500);
+                    if(id==='count-courses') animateCounter(document.getElementById('count-courses'),12,'+',1200);
+                    if(id==='count-instructors') animateCounter(document.getElementById('count-instructors'),8,'+',1200);
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+
+    function setupObserver() { document.querySelectorAll('.reveal').forEach(el => io.observe(el)); }
+
+    // ============================================
+    // MODAL
+    // ============================================
+    function openModal(id) { document.getElementById('modal-'+id).classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeModalById(id) { document.getElementById('modal-'+id).classList.remove('open'); document.body.style.overflow=''; }
+    function closeModal(e,id) { if(e.target===document.getElementById('modal-'+id)) closeModalById(id); }
+
+    // ============================================
+    // ACTIONS
+    // ============================================
+    function handleTrial() {
+        closeModalById('trial');
+        showToast('🎉 Welcome! Our team will reach you on WhatsApp within 24 hours.','✅');
+    }
+    function enrollHifz() {
+        const msg = encodeURIComponent("Assalamu Alaikum! I'm interested in enrolling in the Quran Memorization (Hifz) course — $69. Please guide me further.");
+        window.open(`https://wa.me/${WA}?text=${msg}`, '_blank');
+    }
+    function playDemo() { showToast('▶ Demo video coming soon!','🎬'); }
+
+    // ============================================
+    // TOAST
+    // ============================================
+    let toastTimer;
+    function showToast(msg, icon='✅') {
+        const toast=document.getElementById('toast');
+        document.getElementById('toast-msg').textContent=msg;
+        document.getElementById('toast-icon').textContent=icon;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer=setTimeout(()=>toast.classList.remove('show'),3500);
+    }
+
+    // ============================================
+    // SMOOTH SCROLL
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => { const t=document.querySelector(a.getAttribute('href')); if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});} });
+    });
+
+    // ============================================
+    // LIVE COUNTER FLICKER
+    // ============================================
+    setInterval(()=>{ const el=document.getElementById('h-count'); if(el) el.textContent=(928+Math.floor(Math.random()*6-3)).toLocaleString(); },4000);
+
+    // ============================================
+    // INIT
+    // ============================================
+    renderCourses();
+    renderFeatures();
+    renderTestimonials();
+    setTimeout(setupObserver, 100);
+    document.querySelectorAll('.stat-item').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
