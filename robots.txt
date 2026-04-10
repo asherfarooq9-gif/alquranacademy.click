@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /private/
-Disallow: /tmp/
-
-Sitemap: https://alquranacademy.click/sitemap.xml
