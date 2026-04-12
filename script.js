@@ -16,6 +16,8 @@ const navLinks = document.getElementById('navLinks');
 
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) backToTop.classList.toggle('visible', window.scrollY > 500);
 }, { passive: true });
 
 hamburger.addEventListener('click', () => {
@@ -30,6 +32,11 @@ navLinks.querySelectorAll('a').forEach(link => {
     navLinks.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
   });
+});
+
+/* Back to top */
+document.getElementById('backToTop')?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 /* ============================================
