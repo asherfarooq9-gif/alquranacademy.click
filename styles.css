@@ -993,7 +993,7 @@ em {
   display: grid;
   grid-template-columns: 1.5fr 1.4fr 1fr;
   gap: 56px;
-  padding: 68px 0 60px;
+  padding: 72px 0 60px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
