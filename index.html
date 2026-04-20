@@ -8,12 +8,302 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Naskh+Arabic:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---- Hero Split Layout ---- */
+    .hero { align-items: center; }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1220px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 0 28px;
+    }
+
+    .hero-left { text-align: left; }
+    .hero-left .hero-badge { margin-left: 0; }
+    .hero-left .hero-cta { justify-content: flex-start; }
+    .hero-left .hero-stats { justify-content: flex-start; }
+    .hero-left .subhead { margin: 0 0 44px; }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-photo-frame {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .hero-photo-frame img,
+    .hero-photo-frame .hero-img-placeholder {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 24px;
+      display: block;
+    }
+
+    .hero-photo-overlay {
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(11,61,46,0.35) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-photo-badge {
+      position: absolute;
+      bottom: 28px;
+      left: -28px;
+      background: rgba(13, 26, 20, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(200,169,110,0.3);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-photo-badge-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .hero-photo-badge strong {
+      display: block;
+      font-size: 15px;
+      color: var(--gold-light);
+    }
+
+    .hero-photo-badge span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-photo-badge2 {
+      position: absolute;
+      top: 28px;
+      right: -24px;
+      background: var(--gold);
+      border-radius: 12px;
+      padding: 10px 16px;
+      text-align: center;
+    }
+
+    .hero-photo-badge2 strong {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: #0B1A13;
+      line-height: 1;
+    }
+
+    .hero-photo-badge2 span {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(11,26,19,0.7);
+    }
+
+    /* ---- Course card with image ---- */
+    .course-img {
+      width: 100%;
+      height: 180px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .course-card .card-icon { margin-bottom: 16px; }
+
+    /* ---- Teachers Section ---- */
+    .teachers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .teacher-card {
+      background: var(--white);
+      border: 1px solid rgba(200,169,110,0.18);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .teacher-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .teacher-photo {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .teacher-info {
+      padding: 24px;
+    }
+
+    .teacher-info h3 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .teacher-role {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .teacher-info p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .teacher-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .teacher-tag {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--gold-dim);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* ---- Testimonial with real avatar ---- */
+    .author-avatar-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    /* ---- About / Image feature section ---- */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      height: 440px;
+      border-radius: 20px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      width: 200px;
+      height: 180px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 4px solid var(--cream);
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-content .eyebrow { margin-bottom: 12px; }
+
+    .about-content h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: var(--charcoal);
+    }
+
+    .about-content p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .about-checks {
+      list-style: none;
+      margin: 24px 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .about-checks li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .about-checks li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero-left { text-align: center; }
+      .hero-left .hero-cta, .hero-left .hero-stats { justify-content: center; }
+      .hero-left .subhead { margin: 0 auto 44px; }
+      .hero-photo-badge { left: 16px; bottom: 16px; }
+      .hero-photo-badge2 { right: 16px; }
+      .about-split { grid-template-columns: 1fr; gap: 40px; }
+      .about-img-accent { display: none; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Particle canvas background -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
-
-  <!-- Cursor glow -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
   <!-- Navigation -->
@@ -24,10 +314,11 @@
         <span class="logo-text">Al Quran Academy</span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="#services" data-label="Courses">Courses</a>
-        <a href="#showcase" data-label="Method">Method</a>
-        <a href="#testimonials" data-label="Reviews">Reviews</a>
-        <a href="#contact" data-label="Contact">Contact</a>
+        <a href="#services">Courses</a>
+        <a href="#teachers">Teachers</a>
+        <a href="#showcase">Method</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
       </nav>
       <div class="nav-actions">
         <a href="https://wa.me/923430565179" target="_blank" class="btn btn-primary magnetic" data-magnetic>
@@ -42,50 +333,130 @@
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- ======= HERO (Split Layout) ======= -->
     <section class="hero" id="hero">
       <div class="hero-3d-container" id="heroCanvas"></div>
-      <div class="container hero-content">
-        <div class="hero-badge reveal">
-          <span class="badge-dot"></span>
-          FREE 3-Day Trial — No Credit Card Required
-        </div>
-        <h1 class="reveal">
-          <span class="line-1">Illuminate Your Path</span>
-          <span class="line-2">to <em>Quranic Mastery</em></span>
-        </h1>
-        <p class="subhead reveal">Learn Quran online from certified scholars. 1-on-1 classes, flexible timing. Trusted by <strong>928+ students</strong> globally across 15+ countries since 2012.</p>
-        <div class="hero-cta reveal">
-          <a href="https://wa.me/923430565179" target="_blank" class="btn btn-primary btn-lg magnetic" data-magnetic>
-            Chat on WhatsApp
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          </a>
-          <button class="btn btn-ghost btn-lg" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">
-            View Courses
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </button>
-        </div>
-        <div class="hero-stats reveal">
-          <div class="stat">
-            <strong class="stat-num" data-target="928">0</strong><span class="stat-label">Students</span>
+      <div class="hero-split">
+
+        <!-- LEFT: Text -->
+        <div class="hero-left">
+          <div class="hero-badge reveal">
+            <span class="badge-dot"></span>
+            FREE 3-Day Trial — No Credit Card Required
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <strong class="stat-num" data-target="15">0</strong><span class="stat-label">Countries</span>
+          <h1 class="reveal">
+            <span class="line-1">Illuminate Your Path</span>
+            <span class="line-2">to <em>Quranic Mastery</em></span>
+          </h1>
+          <p class="subhead reveal">Learn Quran online from certified scholars. 1-on-1 classes, flexible timing. Trusted by <strong>928+ students</strong> globally across 15+ countries since 2012.</p>
+          <div class="hero-cta reveal">
+            <a href="https://wa.me/923430565179" target="_blank" class="btn btn-primary btn-lg magnetic" data-magnetic>
+              Chat on WhatsApp
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </a>
+            <button class="btn btn-ghost btn-lg" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'})">
+              View Courses
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </button>
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <strong class="stat-num" data-target="49" data-decimal>0</strong><span class="stat-label">Rating /5</span>
+          <div class="hero-stats reveal">
+            <div class="stat">
+              <strong class="stat-num" data-target="928">0</strong><span class="stat-label">Students</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <strong class="stat-num" data-target="15">0</strong><span class="stat-label">Countries</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <strong class="stat-num" data-target="49" data-decimal>0</strong><span class="stat-label">Rating /5</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Photo -->
+        <div class="hero-right reveal">
+          <div class="hero-photo-frame">
+            <!-- REPLACE src with your actual image -->
+            <img
+              src="images/hero-quran.jpg"
+              alt="Student learning Quran online"
+              class="hero-img-placeholder"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+            >
+            <!-- SVG fallback placeholder -->
+            <svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg" style="display:none;width:100%;height:520px;border-radius:24px;" id="heroImgFallback">
+              <defs>
+                <linearGradient id="hg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0B3D2E"/>
+                  <stop offset="100%" style="stop-color:#1E7A58"/>
+                </linearGradient>
+                <linearGradient id="hg2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#C8A96E;stop-opacity:0.3"/>
+                  <stop offset="100%" style="stop-color:#C8A96E;stop-opacity:0"/>
+                </linearGradient>
+                <radialGradient id="hg3" cx="50%" cy="40%" r="60%">
+                  <stop offset="0%" style="stop-color:#1E7A58;stop-opacity:0.6"/>
+                  <stop offset="100%" style="stop-color:#080f0b;stop-opacity:0"/>
+                </radialGradient>
+              </defs>
+              <rect width="480" height="520" fill="url(#hg1)" rx="24"/>
+              <rect width="480" height="520" fill="url(#hg3)" rx="24"/>
+              <!-- Decorative geometric pattern -->
+              <circle cx="240" cy="200" r="130" fill="none" stroke="#C8A96E" stroke-width="1" opacity="0.3"/>
+              <circle cx="240" cy="200" r="100" fill="none" stroke="#C8A96E" stroke-width="0.5" opacity="0.2"/>
+              <circle cx="240" cy="200" r="70" fill="none" stroke="#C8A96E" stroke-width="1" opacity="0.4"/>
+              <!-- Star of Islam geometry -->
+              <g transform="translate(240,200)" opacity="0.6">
+                <path d="M0,-90 L15,-30 L75,-30 L28,8 L45,70 L0,35 L-45,70 L-28,8 L-75,-30 L-15,-30 Z" fill="none" stroke="#C8A96E" stroke-width="1.5"/>
+              </g>
+              <!-- Arabic/Quran motif lines -->
+              <rect x="80" y="310" width="320" height="2" fill="#C8A96E" opacity="0.2" rx="1"/>
+              <rect x="120" y="325" width="240" height="1.5" fill="#C8A96E" opacity="0.15" rx="1"/>
+              <rect x="100" y="338" width="280" height="1.5" fill="#C8A96E" opacity="0.12" rx="1"/>
+              <rect x="140" y="351" width="200" height="1.5" fill="#C8A96E" opacity="0.1" rx="1"/>
+              <!-- Book icon -->
+              <g transform="translate(195,140)">
+                <rect x="0" y="0" width="45" height="60" rx="3" fill="#C8A96E" opacity="0.7"/>
+                <rect x="45" y="0" width="45" height="60" rx="3" fill="#E8C98E" opacity="0.5"/>
+                <line x1="45" y1="0" x2="45" y2="60" stroke="#0B3D2E" stroke-width="2"/>
+                <rect x="8" y="12" width="29" height="1.5" fill="#0B3D2E" rx="1"/>
+                <rect x="8" y="20" width="22" height="1.5" fill="#0B3D2E" rx="1"/>
+                <rect x="8" y="28" width="26" height="1.5" fill="#0B3D2E" rx="1"/>
+                <rect x="53" y="12" width="29" height="1.5" fill="#0B3D2E" rx="1" opacity="0.6"/>
+                <rect x="53" y="20" width="22" height="1.5" fill="#0B3D2E" rx="1" opacity="0.6"/>
+              </g>
+              <!-- Label -->
+              <text x="240" y="430" text-anchor="middle" font-family="Georgia,serif" font-size="13" fill="#C8A96E" opacity="0.6">Replace with your photo</text>
+              <text x="240" y="448" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="#C8A96E" opacity="0.4">images/hero-quran.jpg</text>
+            </svg>
+            <div class="hero-photo-overlay"></div>
+            <!-- Floating badge bottom-left -->
+            <div class="hero-photo-badge">
+              <div class="hero-photo-badge-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <strong>Ijazah Certified</strong>
+                <span>All our teachers</span>
+              </div>
+            </div>
+            <!-- Floating badge top-right -->
+            <div class="hero-photo-badge2">
+              <strong>12+</strong>
+              <span>Years Teaching</span>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="scroll-indicator" aria-hidden="true">
         <div class="scroll-line"></div>
         <span>Scroll</span>
       </div>
     </section>
 
-    <!-- Services -->
+    <!-- ======= SERVICES ======= -->
     <section class="section" id="services">
       <div class="container">
         <div class="section-head reveal">
@@ -94,9 +465,17 @@
           <p>Structured programs from beginner to advanced, taught by Ijazah-certified Qaris.</p>
         </div>
         <div class="courses-grid">
+
           <article class="course-card reveal" data-delay="0">
             <div class="card-num">01</div>
             <div class="card-glow"></div>
+            <!-- Course image: replace src -->
+            <img
+              src="images/course-reading.jpg"
+              alt="Quran Reading lesson"
+              class="course-img"
+              onerror="this.onerror=null;this.src='data:image/svg+xml,' + encodeURIComponent(getCourseImg('01','Quran Reading','#0B3D2E','#1E7A58'));"
+            >
             <div class="card-icon">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
             </div>
@@ -104,9 +483,16 @@
             <p>Master Tajweed rules and fluent recitation from the basics. Perfect for all ages and beginners.</p>
             <div class="card-tag">Beginner Friendly</div>
           </article>
+
           <article class="course-card reveal" data-delay="100">
             <div class="card-num">02</div>
             <div class="card-glow"></div>
+            <img
+              src="images/course-hifz.jpg"
+              alt="Hifz memorization program"
+              class="course-img"
+              onerror="this.onerror=null;this.src='data:image/svg+xml,' + encodeURIComponent(getCourseImg('02','Hifz Program','#145A42','#0B3D2E'));"
+            >
             <div class="card-icon">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             </div>
@@ -114,9 +500,16 @@
             <p>Complete Quran memorization with proven techniques, daily revision, and accountability system.</p>
             <div class="card-tag">Most Popular</div>
           </article>
+
           <article class="course-card reveal" data-delay="200">
             <div class="card-num">03</div>
             <div class="card-glow"></div>
+            <img
+              src="images/course-tafsir.jpg"
+              alt="Tafsir studies"
+              class="course-img"
+              onerror="this.onerror=null;this.src='data:image/svg+xml,' + encodeURIComponent(getCourseImg('03','Tafsir Studies','#1E7A58','#145A42'));"
+            >
             <div class="card-icon">
               <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
             </div>
@@ -124,11 +517,143 @@
             <p>Context, stories, and scholarly explanations of verses. Understand the Quran with depth and wisdom.</p>
             <div class="card-tag">Advanced</div>
           </article>
+
         </div>
       </div>
     </section>
 
-    <!-- Showcase / Method -->
+    <!-- ======= ABOUT / PHOTO FEATURE ======= -->
+    <section class="section section-dark" id="about">
+      <div class="container">
+        <div class="about-split reveal">
+          <div class="about-img-wrap">
+            <!-- REPLACE with your real photo -->
+            <img
+              src="images/about-classroom.jpg"
+              alt="Online Quran classroom"
+              class="about-img-main"
+              onerror="this.onerror=null;this.src=makeAboutSvg();"
+            >
+            <img
+              src="images/about-student.jpg"
+              alt="Happy student"
+              class="about-img-accent"
+              onerror="this.style.display='none';"
+            >
+          </div>
+          <div class="about-content">
+            <span class="eyebrow">Why Choose Us</span>
+            <h2>Authentic Learning, <em>Modern Delivery</em></h2>
+            <p>Since 2012, we have connected thousands of students with world-class Quran teachers — all from the comfort of home. Our scholars hold Ijazah chains traced directly to the Prophet ﷺ.</p>
+            <p>We understand that every student learns differently. That's why we tailor every lesson to your level, age, and goals — whether you're 5 or 55.</p>
+            <ul class="about-checks">
+              <li>Certified Ijazah teachers from Egypt, Saudi Arabia & Pakistan</li>
+              <li>Separate male & female instructors available</li>
+              <li>Free trial — zero commitment, zero risk</li>
+              <li>Flexible scheduling across all time zones</li>
+              <li>Monthly progress reports for parents</li>
+            </ul>
+            <a href="https://wa.me/923430565179" target="_blank" class="btn btn-gold btn-lg">
+              Start Free Trial
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= TEACHERS ======= -->
+    <section class="section" id="teachers">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Our Faculty</span>
+          <h2>Meet Your <em>Certified Scholars</em></h2>
+          <p>Every teacher holds an Ijazah chain and has years of experience teaching students globally.</p>
+        </div>
+        <div class="teachers-grid">
+
+          <div class="teacher-card reveal" data-delay="0">
+            <!-- REPLACE src with real photo -->
+            <img
+              src="images/teacher-1.jpg"
+              alt="Sheikh Abdullah"
+              class="teacher-photo"
+              onerror="this.onerror=null;this.src=makeTeacherSvg('SA','#0B3D2E','#1E7A58');"
+            >
+            <div class="teacher-info">
+              <h3>Sheikh Abdullah</h3>
+              <span class="teacher-role">Hifz & Tajweed Specialist</span>
+              <p>15+ years teaching Hifz. Graduate of Al-Azhar University. Has helped 300+ students complete full Quran memorization.</p>
+              <div class="teacher-tags">
+                <span class="teacher-tag">Hifz</span>
+                <span class="teacher-tag">Tajweed</span>
+                <span class="teacher-tag">Al-Azhar</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="teacher-card reveal" data-delay="100">
+            <img
+              src="images/teacher-2.jpg"
+              alt="Ustadha Maryam"
+              class="teacher-photo"
+              onerror="this.onerror=null;this.src=makeTeacherSvg('UM','#145A42','#C8A96E');"
+            >
+            <div class="teacher-info">
+              <h3>Ustadha Maryam</h3>
+              <span class="teacher-role">Female Quran Teacher</span>
+              <p>Specialist in teaching women & children. Known for her patient, nurturing approach. 10+ years experience with students aged 4–60.</p>
+              <div class="teacher-tags">
+                <span class="teacher-tag">Female Students</span>
+                <span class="teacher-tag">Children</span>
+                <span class="teacher-tag">Nazra</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="teacher-card reveal" data-delay="200">
+            <img
+              src="images/teacher-3.jpg"
+              alt="Sheikh Usman"
+              class="teacher-photo"
+              onerror="this.onerror=null;this.src=makeTeacherSvg('SU','#1E7A58','#0B3D2E');"
+            >
+            <div class="teacher-info">
+              <h3>Sheikh Usman</h3>
+              <span class="teacher-role">Tafsir & Islamic Studies</span>
+              <p>PhD in Islamic Sciences. Teaches Tafsir with rich historical context. Fluent in English, Arabic & Urdu. Loved by adult learners worldwide.</p>
+              <div class="teacher-tags">
+                <span class="teacher-tag">Tafsir</span>
+                <span class="teacher-tag">Islamic Studies</span>
+                <span class="teacher-tag">Adults</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="teacher-card reveal" data-delay="300">
+            <img
+              src="images/teacher-4.jpg"
+              alt="Ustadha Zainab"
+              class="teacher-photo"
+              onerror="this.onerror=null;this.src=makeTeacherSvg('UZ','#C8A96E','#0B3D2E');"
+            >
+            <div class="teacher-info">
+              <h3>Ustadha Zainab</h3>
+              <span class="teacher-role">Beginner & Kids Specialist</span>
+              <p>Expert in teaching complete beginners and young children with gamified methods. 8+ years experience. Parents love her monthly reports.</p>
+              <div class="teacher-tags">
+                <span class="teacher-tag">Beginners</span>
+                <span class="teacher-tag">Kids 4+</span>
+                <span class="teacher-tag">Gamified</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= SHOWCASE / METHOD ======= -->
     <section class="section section-dark" id="showcase">
       <div class="showcase-canvas" id="showcaseCanvas"></div>
       <div class="container">
@@ -156,7 +681,7 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- ======= TESTIMONIALS ======= -->
     <section class="section" id="testimonials">
       <div class="container">
         <div class="section-head reveal">
@@ -165,92 +690,130 @@
         </div>
         <div class="testimonial-wrapper">
           <div class="testimonial-track-outer">
-          <div class="testimonial-track" id="testimonialTrack">
-            <article class="testimonial-card">
-              <div class="tcard-top">
-                <div class="stars">★★★★★</div>
-                <div class="tcard-flag">🇺🇸</div>
-              </div>
-              <blockquote>"My 8-year-old son went from zero to reading fluently in 4 months. The teacher is so patient and uses games to keep him engaged. Absolutely worth every penny."</blockquote>
-              <div class="tcard-author">
-                <div class="author-avatar">SM</div>
-                <div>
-                  <strong>Sarah M.</strong>
-                  <span>USA · Mother of Student</span>
+            <div class="testimonial-track" id="testimonialTrack">
+
+              <article class="testimonial-card">
+                <div class="tcard-top">
+                  <div class="stars">★★★★★</div>
+                  <div class="tcard-flag">🇺🇸</div>
                 </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="tcard-top">
-                <div class="stars">★★★★★</div>
-                <div class="tcard-flag">🇬🇧</div>
-              </div>
-              <blockquote>"I tried 3 other academies. This is the only one where I actually finished memorizing Juz Amma. The revision system works perfectly. My teacher never gives up on me."</blockquote>
-              <div class="tcard-author">
-                <div class="author-avatar">AK</div>
-                <div>
-                  <strong>Ahmed K.</strong>
-                  <span>UK · Hifz Student</span>
+                <blockquote>"My 8-year-old son went from zero to reading fluently in 4 months. The teacher is so patient and uses games to keep him engaged. Absolutely worth every penny."</blockquote>
+                <div class="tcard-author">
+                  <!-- REPLACE src with real photo -->
+                  <img
+                    src="images/avatar-sarah.jpg"
+                    alt="Sarah M."
+                    class="author-avatar-img"
+                    onerror="this.onerror=null;this.src=makeAvatarSvg('SM','#0B3D2E');"
+                  >
+                  <div>
+                    <strong>Sarah M.</strong>
+                    <span>USA · Mother of Student</span>
+                  </div>
                 </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="tcard-top">
-                <div class="stars">★★★★★</div>
-                <div class="tcard-flag">🇨🇦</div>
-              </div>
-              <blockquote>"As a revert, I was nervous to start. My teacher explains everything in English first. Now I can read with proper Tajweed — it has completely transformed my Salah."</blockquote>
-              <div class="tcard-author">
-                <div class="author-avatar">JR</div>
-                <div>
-                  <strong>Jessica R.</strong>
-                  <span>Canada · Adult Student</span>
+              </article>
+
+              <article class="testimonial-card">
+                <div class="tcard-top">
+                  <div class="stars">★★★★★</div>
+                  <div class="tcard-flag">🇬🇧</div>
                 </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="tcard-top">
-                <div class="stars">★★★★★</div>
-                <div class="tcard-flag">🇦🇺</div>
-              </div>
-              <blockquote>"Both my daughters take classes here. The female teacher option was important for our family. The monthly progress reports keep us motivated and informed every step."</blockquote>
-              <div class="tcard-author">
-                <div class="author-avatar">FA</div>
-                <div>
-                  <strong>Fatima A.</strong>
-                  <span>Australia · Parent</span>
+                <blockquote>"I tried 3 other academies. This is the only one where I actually finished memorizing Juz Amma. The revision system works perfectly. My teacher never gives up on me."</blockquote>
+                <div class="tcard-author">
+                  <img
+                    src="images/avatar-ahmed.jpg"
+                    alt="Ahmed K."
+                    class="author-avatar-img"
+                    onerror="this.onerror=null;this.src=makeAvatarSvg('AK','#1E7A58');"
+                  >
+                  <div>
+                    <strong>Ahmed K.</strong>
+                    <span>UK · Hifz Student</span>
+                  </div>
                 </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="tcard-top">
-                <div class="stars">★★★★★</div>
-                <div class="tcard-flag">🇩🇪</div>
-              </div>
-              <blockquote>"The Tafsir classes opened my eyes to a whole new dimension of the Quran. Sheikh explains context, history and wisdom in a way that is clear, deep, and truly inspiring."</blockquote>
-              <div class="tcard-author">
-                <div class="author-avatar">OB</div>
-                <div>
-                  <strong>Omar B.</strong>
-                  <span>Germany · Tafsir Student</span>
+              </article>
+
+              <article class="testimonial-card">
+                <div class="tcard-top">
+                  <div class="stars">★★★★★</div>
+                  <div class="tcard-flag">🇨🇦</div>
                 </div>
-              </div>
-            </article>
-            <article class="testimonial-card">
-              <div class="tcard-top">
-                <div class="stars">★★★★★</div>
-                <div class="tcard-flag">🇿🇦</div>
-              </div>
-              <blockquote>"I enrolled my 10-year-old during lockdown and never looked back. She memorized 5 Juz in one year. The teacher's dedication and love for students is unmatched anywhere."</blockquote>
-              <div class="tcard-author">
-                <div class="author-avatar">NA</div>
-                <div>
-                  <strong>Nadia A.</strong>
-                  <span>South Africa · Parent</span>
+                <blockquote>"As a revert, I was nervous to start. My teacher explains everything in English first. Now I can read with proper Tajweed — it has completely transformed my Salah."</blockquote>
+                <div class="tcard-author">
+                  <img
+                    src="images/avatar-jessica.jpg"
+                    alt="Jessica R."
+                    class="author-avatar-img"
+                    onerror="this.onerror=null;this.src=makeAvatarSvg('JR','#145A42');"
+                  >
+                  <div>
+                    <strong>Jessica R.</strong>
+                    <span>Canada · Adult Student</span>
+                  </div>
                 </div>
-              </div>
-            </article>
-          </div>
+              </article>
+
+              <article class="testimonial-card">
+                <div class="tcard-top">
+                  <div class="stars">★★★★★</div>
+                  <div class="tcard-flag">🇦🇺</div>
+                </div>
+                <blockquote>"Both my daughters take classes here. The female teacher option was important for our family. The monthly progress reports keep us motivated and informed every step."</blockquote>
+                <div class="tcard-author">
+                  <img
+                    src="images/avatar-fatima.jpg"
+                    alt="Fatima A."
+                    class="author-avatar-img"
+                    onerror="this.onerror=null;this.src=makeAvatarSvg('FA','#C8A96E');"
+                  >
+                  <div>
+                    <strong>Fatima A.</strong>
+                    <span>Australia · Parent</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <div class="tcard-top">
+                  <div class="stars">★★★★★</div>
+                  <div class="tcard-flag">🇩🇪</div>
+                </div>
+                <blockquote>"The Tafsir classes opened my eyes to a whole new dimension of the Quran. Sheikh explains context, history and wisdom in a way that is clear, deep, and truly inspiring."</blockquote>
+                <div class="tcard-author">
+                  <img
+                    src="images/avatar-omar.jpg"
+                    alt="Omar B."
+                    class="author-avatar-img"
+                    onerror="this.onerror=null;this.src=makeAvatarSvg('OB','#0B3D2E');"
+                  >
+                  <div>
+                    <strong>Omar B.</strong>
+                    <span>Germany · Tafsir Student</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="testimonial-card">
+                <div class="tcard-top">
+                  <div class="stars">★★★★★</div>
+                  <div class="tcard-flag">🇿🇦</div>
+                </div>
+                <blockquote>"I enrolled my 10-year-old during lockdown and never looked back. She memorized 5 Juz in one year. The teacher's dedication and love for students is unmatched anywhere."</blockquote>
+                <div class="tcard-author">
+                  <img
+                    src="images/avatar-nadia.jpg"
+                    alt="Nadia A."
+                    class="author-avatar-img"
+                    onerror="this.onerror=null;this.src=makeAvatarSvg('NA','#1E7A58');"
+                  >
+                  <div>
+                    <strong>Nadia A.</strong>
+                    <span>South Africa · Parent</span>
+                  </div>
+                </div>
+              </article>
+
+            </div>
           </div>
           <div class="slider-controls">
             <button class="slider-btn" id="prevBtn" aria-label="Previous">
@@ -265,7 +828,7 @@
       </div>
     </section>
 
-    <!-- CTA -->
+    <!-- ======= CTA ======= -->
     <section class="cta-section" id="cta">
       <div class="cta-canvas" id="ctaCanvas"></div>
       <div class="container cta-inner reveal">
@@ -287,40 +850,25 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (unchanged) -->
   <footer class="footer" id="contact">
-    <!-- Top bar -->
     <div class="footer-topbar">
       <div class="container footer-topbar-inner">
         <span class="footer-topbar-text">🕌 Serving students across 15+ countries since 2012</span>
-        <a href="https://wa.me/923430565179" target="_blank" class="footer-topbar-cta">
-          Start Free Trial →
-        </a>
+        <a href="https://wa.me/923430565179" target="_blank" class="footer-topbar-cta">Start Free Trial →</a>
       </div>
     </div>
-
     <div class="container footer-body">
-      <!-- Brand column -->
       <div class="footer-brand-col">
         <a href="#hero" class="logo footer-logo">
           <span class="logo-arabic">القرآن</span>
           <span class="logo-text">Al Quran Academy</span>
         </a>
         <p class="footer-tagline">Illuminating hearts through the words of Allah. Online Quran education trusted by families worldwide since 2012.</p>
-
-        <!-- Trust badges -->
         <div class="footer-badges">
-          <div class="footer-badge">
-            <span class="fb-icon">✓</span>
-            <span>Female Teachers</span>
-          </div>
-          <div class="footer-badge">
-            <span class="fb-icon">✓</span>
-            <span>Child Safe</span>
-          </div>
+          <div class="footer-badge"><span class="fb-icon">✓</span><span>Female Teachers</span></div>
+          <div class="footer-badge"><span class="fb-icon">✓</span><span>Child Safe</span></div>
         </div>
-
-        <!-- Social / contact links -->
         <div class="footer-socials">
           <a href="https://wa.me/923430565179" target="_blank" class="social-link" aria-label="WhatsApp">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -328,19 +876,8 @@
           <a href="mailto:alquranacademy685@gmail.com" class="social-link" aria-label="Email">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </a>
-          <a href="#" class="social-link" aria-label="Facebook">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-          </a>
-          <a href="#" class="social-link" aria-label="Instagram">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="#" class="social-link" aria-label="YouTube">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
-          </a>
         </div>
       </div>
-
-      <!-- Links columns -->
       <div class="footer-links-area">
         <div class="footer-col">
           <h4>Courses</h4>
@@ -355,10 +892,10 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#services">About Us</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#teachers">Our Teachers</a></li>
             <li><a href="#showcase">Our Method</a></li>
             <li><a href="#testimonials">Student Reviews</a></li>
-            <li><a href="#">Blog & Articles</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -371,8 +908,6 @@
           </ul>
         </div>
       </div>
-
-      <!-- Contact info column -->
       <div class="footer-contact-col">
         <h4>Get in Touch</h4>
         <div class="footer-contact-items">
@@ -380,41 +915,27 @@
             <div class="fci-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
             </div>
-            <div>
-              <span class="fci-label">WhatsApp</span>
-              <strong>+92 343 0565179</strong>
-            </div>
+            <div><span class="fci-label">WhatsApp</span><strong>+92 343 0565179</strong></div>
           </a>
           <a href="mailto:alquranacademy685@gmail.com" class="footer-contact-item">
             <div class="fci-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </div>
-            <div>
-              <span class="fci-label">Email</span>
-              <strong>alquranacademy685@gmail.com</strong>
-            </div>
+            <div><span class="fci-label">Email</span><strong>alquranacademy685@gmail.com</strong></div>
           </a>
           <div class="footer-contact-item">
             <div class="fci-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
-            <div>
-              <span class="fci-label">Location</span>
-              <strong>Rawalpindi, Pakistan</strong>
-            </div>
+            <div><span class="fci-label">Location</span><strong>Rawalpindi, Pakistan</strong></div>
           </div>
           <div class="footer-contact-item">
             <div class="fci-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
-            <div>
-              <span class="fci-label">Availability</span>
-              <strong>24/7 All Timezones</strong>
-            </div>
+            <div><span class="fci-label">Availability</span><strong>24/7 All Timezones</strong></div>
           </div>
         </div>
-
-        <!-- Newsletter -->
         <div class="footer-newsletter">
           <p>Get free Quran learning tips weekly</p>
           <div class="newsletter-form">
@@ -424,29 +945,17 @@
         </div>
       </div>
     </div>
-
-    <!-- Stats bar -->
     <div class="footer-stats-bar">
       <div class="container footer-stats-inner">
-        <div class="footer-stat">
-          <strong>928+</strong><span>Students Enrolled</span>
-        </div>
+        <div class="footer-stat"><strong>928+</strong><span>Students Enrolled</span></div>
         <div class="footer-stat-sep"></div>
-        <div class="footer-stat">
-          <strong>15+</strong><span>Countries Served</span>
-        </div>
+        <div class="footer-stat"><strong>15+</strong><span>Countries Served</span></div>
         <div class="footer-stat-sep"></div>
-        <div class="footer-stat">
-          <strong>4.9/5</strong><span>Average Rating</span>
-        </div>
+        <div class="footer-stat"><strong>4.9/5</strong><span>Average Rating</span></div>
         <div class="footer-stat-sep"></div>
-        <div class="footer-stat">
-          <strong>2012</strong><span>Established</span>
-        </div>
+        <div class="footer-stat"><strong>2012</strong><span>Established</span></div>
       </div>
     </div>
-
-    <!-- Bottom bar -->
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
         <p>© 2026 Al Quran Academy. All rights reserved. Serving the Ummah since 2012.</p>
@@ -459,10 +968,8 @@
     </div>
   </footer>
 
-  <!-- Three.js via CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-  <!-- Floating actions -->
   <div class="floating-actions">
     <a href="https://wa.me/923430565179" target="_blank" class="fab fab-whatsapp" aria-label="Chat on WhatsApp">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -472,6 +979,38 @@
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
   </div>
+
+  <!-- SVG placeholder generators (run before images load) -->
+  <script>
+    function getCourseImg(num, label, c1, c2) {
+      return `<svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="cg${num}" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:${c1}"/><stop offset="100%" style="stop-color:${c2}"/></linearGradient></defs><rect width="400" height="180" fill="url(#cg${num})" rx="12"/><circle cx="200" cy="75" r="55" fill="none" stroke="#C8A96E" stroke-width="1" opacity="0.3"/><circle cx="200" cy="75" r="35" fill="none" stroke="#C8A96E" stroke-width="1" opacity="0.5"/><text x="200" y="155" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="#C8A96E" opacity="0.5">Replace: images/course-${label.toLowerCase().replace(' ','-')}.jpg</text></svg>`;
+    }
+
+    function makeTeacherSvg(initials, bg, accent) {
+      const svg = `<svg viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="tg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:${bg}"/><stop offset="100%" style="stop-color:${accent};stop-opacity:0.6"/></linearGradient></defs><rect width="280" height="260" fill="url(#tg)"/><circle cx="140" cy="95" r="48" fill="${accent}" opacity="0.2"/><circle cx="140" cy="95" r="36" fill="${accent}" opacity="0.15"/><text x="140" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="28" font-weight="700" fill="#C8A96E">${initials}</text><ellipse cx="140" cy="220" rx="65" ry="35" fill="${accent}" opacity="0.12"/><text x="140" y="240" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#C8A96E" opacity="0.45">Replace with teacher photo</text></svg>`;
+      return 'data:image/svg+xml,' + encodeURIComponent(svg);
+    }
+
+    function makeAvatarSvg(initials, bg) {
+      const svg = `<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="${bg}"/><text x="24" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="16" font-weight="700" fill="#C8A96E">${initials}</text></svg>`;
+      return 'data:image/svg+xml,' + encodeURIComponent(svg);
+    }
+
+    function makeAboutSvg() {
+      const svg = `<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0B3D2E"/><stop offset="100%" style="stop-color:#1E7A58"/></linearGradient></defs><rect width="600" height="440" fill="url(#ag)" rx="20"/><circle cx="300" cy="190" r="120" fill="none" stroke="#C8A96E" stroke-width="1" opacity="0.2"/><circle cx="300" cy="190" r="80" fill="none" stroke="#C8A96E" stroke-width="1" opacity="0.3"/><text x="300" y="400" text-anchor="middle" font-family="Georgia,serif" font-size="12" fill="#C8A96E" opacity="0.5">Replace: images/about-classroom.jpg</text></svg>`;
+      return 'data:image/svg+xml,' + encodeURIComponent(svg);
+    }
+
+    // Fix hero fallback visibility
+    window.addEventListener('DOMContentLoaded', () => {
+      const heroImg = document.querySelector('.hero-photo-frame img');
+      if (heroImg) {
+        heroImg.addEventListener('error', () => {
+          document.getElementById('heroImgFallback').style.display = 'block';
+        });
+      }
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
