@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quran Learning Blog | Tips, Guides & Resources | Al Quran Academy</title>
+  <meta name="description" content="Free Quran learning guides, Tajweed tips, Hifz advice and Islamic education resources for parents and students. Al Quran Academy blog.">
+  <meta name="keywords" content="Quran learning blog, Tajweed tips, Hifz guide, online Quran classes tips, Islamic education blog">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://alquranacademy.click/blog.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alquranacademy.click/blog.html">
+  <meta property="og:title" content="Quran Learning Blog | Al Quran Academy">
+  <meta property="og:description" content="Free guides on Tajweed, Hifz, online Quran classes and Islamic education for families worldwide.">
+  <meta property="og:site_name" content="Al Quran Academy">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Al Quran Academy Blog",
+    "description": "Quran learning guides, Tajweed tips, Hifz advice and Islamic education resources.",
+    "url": "https://alquranacademy.click/blog.html",
+    "publisher": { "@type": "Organization", "name": "Al Quran Academy", "url": "https://alquranacademy.click" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-dark: #0B3D2E; --green: #1E7A58;
+      --gold: #C8A96E; --gold-light: #E8C98E; --gold-dim: rgba(200,169,110,0.12);
+      --cream: #F9F6F0; --charcoal: #1A1A1A; --text: #2D2D2D; --text-muted: #666;
+      --white: #fff; --border: rgba(0,0,0,0.08); --radius: 16px;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+    }
+    body { font-family: var(--font-sans); color: var(--text); background: var(--white); line-height: 1.7; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-arabic { font-size: 20px; color: var(--gold); }
+    .logo-text { font-family: var(--font-serif); font-size: 16px; color: var(--green-dark); font-weight: 700; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { background: var(--green-dark); color: var(--gold); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 500; }
+    @media (max-width: 600px) { .nav-links { display: none; } }
+
+    .page-hero { background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%); padding: 72px 24px 64px; text-align: center; }
+    .page-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 52px); color: var(--white); line-height: 1.2; margin-bottom: 16px; }
+    .page-hero h1 em { color: var(--gold); font-style: italic; }
+    .page-hero p { color: rgba(255,255,255,0.75); font-size: 17px; max-width: 520px; margin: 0 auto; }
+
+    .breadcrumb { max-width: 1100px; margin: 0 auto; padding: 16px 24px 0; font-size: 13px; color: var(--text-muted); }
+    .breadcrumb a { color: var(--green); text-decoration: none; }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* FILTER TABS */
+    .filter-wrap { max-width: 1100px; margin: 0 auto; padding: 32px 24px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn { padding: 8px 18px; border-radius: 999px; border: 1px solid var(--border); background: var(--white); font-size: 13px; font-weight: 500; color: var(--text-muted); cursor: pointer; font-family: var(--font-sans); transition: all 0.2s; }
+    .filter-btn:hover { border-color: var(--gold); color: var(--green-dark); }
+    .filter-btn.active { background: var(--green-dark); color: var(--gold); border-color: var(--green-dark); }
+
+    /* BLOG GRID */
+    .blog-section { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .featured-post { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: var(--cream); border-radius: 20px; padding: 40px; margin-bottom: 48px; border: 1px solid var(--border); }
+    @media (max-width: 700px) { .featured-post { grid-template-columns: 1fr; gap: 24px; padding: 28px; } }
+    .featured-img { width: 100%; height: 260px; border-radius: 14px; object-fit: cover; background: linear-gradient(135deg, var(--green-dark), var(--green)); display: flex; align-items: center; justify-content: center; }
+    .featured-img-placeholder { width: 100%; height: 260px; border-radius: 14px; background: linear-gradient(135deg, var(--green-dark), var(--green)); display: flex; align-items: center; justify-content: center; }
+    .featured-img-placeholder span { font-family: var(--font-serif); font-size: 48px; color: var(--gold); opacity: 0.6; }
+    .featured-badge { display: inline-block; background: var(--gold); color: var(--green-dark); font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .featured-content h2 { font-family: var(--font-serif); font-size: 26px; color: var(--charcoal); line-height: 1.3; margin-bottom: 12px; }
+    .featured-content p { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.7; }
+    .post-meta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+    .meta-tag { display: inline-block; background: var(--gold-dim); color: var(--green-dark); font-size: 12px; padding: 3px 10px; border-radius: 999px; font-weight: 500; }
+    .meta-date { font-size: 13px; color: var(--text-muted); }
+    .meta-read { font-size: 13px; color: var(--text-muted); }
+    .read-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--green-dark); color: var(--gold); padding: 12px 22px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 500; transition: background 0.2s; }
+    .read-btn:hover { background: var(--green); }
+
+    .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+
+    .post-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; display: block; }
+    .post-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .post-card-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+    .post-card-img-placeholder { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .post-card-body { padding: 20px; }
+    .post-card-tag { display: inline-block; background: var(--gold-dim); color: var(--green-dark); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .post-card-title { font-family: var(--font-serif); font-size: 18px; color: var(--charcoal); line-height: 1.35; margin-bottom: 8px; }
+    .post-card-excerpt { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; }
+    .post-card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .post-card-date { font-size: 12px; color: var(--text-muted); }
+    .post-card-read { font-size: 12px; color: var(--green); font-weight: 500; }
+
+    /* COMING SOON CARDS */
+    .post-card.coming-soon { opacity: 0.5; pointer-events: none; }
+    .coming-badge { display: inline-block; background: #f0f0f0; color: #999; font-size: 11px; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+
+    /* NEWSLETTER */
+    .newsletter { background: var(--cream); border-radius: var(--radius); padding: 40px 32px; text-align: center; margin-top: 56px; }
+    .newsletter h3 { font-family: var(--font-serif); font-size: 26px; color: var(--charcoal); margin-bottom: 8px; }
+    .newsletter p { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; }
+    .newsletter-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; }
+    .newsletter-form input { flex: 1; padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; font-size: 14px; font-family: var(--font-sans); outline: none; }
+    .newsletter-form input:focus { border-color: var(--gold); }
+    .newsletter-form button { background: var(--green-dark); color: var(--gold); border: none; padding: 12px 20px; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font-sans); white-space: nowrap; }
+    @media (max-width: 500px) { .newsletter-form { flex-direction: column; } }
+
+    .cta-strip { background: linear-gradient(135deg, var(--green-dark), var(--green)); padding: 56px 24px; text-align: center; margin-top: 0; }
+    .cta-strip h2 { font-family: var(--font-serif); font-size: clamp(24px, 4vw, 40px); color: var(--white); margin-bottom: 12px; }
+    .cta-strip h2 em { color: var(--gold); font-style: italic; }
+    .cta-strip p { color: rgba(255,255,255,0.75); font-size: 16px; margin-bottom: 24px; }
+    .cta-strip a { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--green-dark); padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 500; font-size: 15px; }
+
+    .page-footer { background: var(--green-dark); padding: 32px 24px; text-align: center; }
+    .page-footer p { color: rgba(255,255,255,0.4); font-size: 13px; }
+    .page-footer a { color: var(--gold); text-decoration: none; }
+
+    .fab { position: fixed; bottom: 28px; right: 28px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 99; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <span class="logo-arabic">القرآن</span>
+        <span class="logo-text">Al Quran Academy</span>
+      </a>
+      <div class="nav-links">
+        <a href="/#services">Courses</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <a href="https://wa.me/923430565179" target="_blank" class="nav-cta">Free Trial →</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>›</span>Blog
+  </div>
+
+  <div class="page-hero">
+    <h1>Quran Learning <em>Blog</em></h1>
+    <p>Free guides, tips and resources to help you and your family learn Quran online — written by our teachers.</p>
+  </div>
+
+  <!-- FILTER TABS -->
+  <div class="filter-wrap">
+    <button class="filter-btn active">All Posts</button>
+    <button class="filter-btn">Tajweed</button>
+    <button class="filter-btn">Hifz</button>
+    <button class="filter-btn">Parents Guide</button>
+    <button class="filter-btn">UK</button>
+    <button class="filter-btn">USA</button>
+  </div>
+
+  <div class="blog-section">
+
+    <!-- FEATURED POST -->
+    <div class="featured-post">
+      <div class="featured-img-placeholder">
+        <span>📖</span>
+      </div>
+      <div class="featured-content">
+        <div class="featured-badge">Featured</div>
+        <div class="post-meta-row">
+          <span class="meta-tag">Tajweed Guide</span>
+          <span class="meta-date">Apr 21, 2026</span>
+          <span class="meta-read">8 min read</span>
+        </div>
+        <h2>How to Learn Tajweed at Home: Complete Beginner's Guide 2026</h2>
+        <p>Step-by-step guide covering Noorani Qaida, the 5 essential Tajweed rules, daily practice routines, and how to find a qualified teacher — everything a beginner needs to recite Quran correctly.</p>
+        <a href="/blog-tajweed.html" class="read-btn">
+          Read Article
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- POSTS GRID -->
+    <div class="posts-grid">
+
+      <a href="/blog-hifz-age.html" class="post-card">
+        <div class="post-card-img-placeholder" style="background:linear-gradient(135deg,#0B3D2E,#1E7A58);">
+          <span>🌟</span>
+        </div>
+        <div class="post-card-body">
+          <span class="post-card-tag">Parents Guide · Hifz</span>
+          <h3 class="post-card-title">Best Age to Start Hifz for Kids: Complete Parent's Guide 2026</h3>
+          <p class="post-card-excerpt">Age-by-age breakdown, signs of readiness, how to prepare your child, realistic timeline, and common mistakes parents make with Hifz.</p>
+          <div class="post-card-footer">
+            <span class="post-card-date">Apr 21, 2026 · 9 min</span>
+            <span class="post-card-read">Read →</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/blog-quran-classes-uk.html" class="post-card">
+        <div class="post-card-img-placeholder" style="background:linear-gradient(135deg,#0a2e47,#1a5c8a);">
+          <span>🇬🇧</span>
+        </div>
+        <div class="post-card-body">
+          <span class="post-card-tag">UK · Parents Guide</span>
+          <h3 class="post-card-title">Online Quran Classes for Kids in UK: Complete Guide 2026</h3>
+          <p class="post-card-excerpt">Everything UK parents need to know — what to look for, UK class timings, pricing, courses available, and how to get started with a free trial.</p>
+          <div class="post-card-footer">
+            <span class="post-card-date">Apr 21, 2026 · 8 min</span>
+            <span class="post-card-read">Read →</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- COMING SOON CARDS -->
+      <div class="post-card coming-soon">
+        <div class="post-card-img-placeholder" style="background:linear-gradient(135deg,#1a3a5c,#2a5f8a);">
+          <span>🇺🇸</span>
+        </div>
+        <div class="post-card-body">
+          <span class="coming-badge">Coming Soon</span>
+          <h3 class="post-card-title">Online Quran Classes for Kids in USA: Complete Guide 2026</h3>
+          <p class="post-card-excerpt">Everything US parents need to know about finding quality online Quran classes for their children.</p>
+          <div class="post-card-footer">
+            <span class="post-card-date">Coming soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card coming-soon">
+        <div class="post-card-img-placeholder" style="background:linear-gradient(135deg,#2d1a0e,#7a4a1e);">
+          <span>📿</span>
+        </div>
+        <div class="post-card-body">
+          <span class="coming-badge">Coming Soon</span>
+          <h3 class="post-card-title">How to Memorize Quran Online: Tips from Our Teachers</h3>
+          <p class="post-card-excerpt">Proven techniques for Quran memorization at home with an online teacher.</p>
+          <div class="post-card-footer">
+            <span class="post-card-date">Coming soon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="post-card coming-soon">
+        <div class="post-card-img-placeholder" style="background:linear-gradient(135deg,#1a0b3d,#3d1e7a);">
+          <span>👩‍🏫</span>
+        </div>
+        <div class="post-card-body">
+          <span class="coming-badge">Coming Soon</span>
+          <h3 class="post-card-title">Female Quran Teacher Online: Why It Matters for Sisters</h3>
+          <p class="post-card-excerpt">Why choosing a qualified female teacher makes a difference for girls and women learning Quran.</p>
+          <div class="post-card-footer">
+            <span class="post-card-date">Coming soon</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter">
+      <h3>Get New Articles Every Week</h3>
+      <p>Free Quran learning tips, Tajweed guides and parenting advice — delivered to your inbox.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your email address" aria-label="Email address">
+        <button type="button">Subscribe</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h2>Ready to Start Learning <em>Quran Online?</em></h2>
+    <p>Join 928+ students from UK, USA, Canada and Australia. Free 3-day trial — no credit card.</p>
+    <a href="https://wa.me/923430565179" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Claim Free Trial on WhatsApp
+    </a>
+  </div>
+
+  <footer class="page-footer">
+    <p>© 2026 <a href="/">Al Quran Academy</a> · Online Quran Classes for Kids &amp; Adults · Rawalpindi, Pakistan</p>
+  </footer>
+
+  <a href="https://wa.me/923430565179" target="_blank" class="fab" aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+
+</body>
+</html>
