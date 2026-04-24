@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Main Pages -->
   <url>
     <loc>https://alquranacademy.click/</loc>
     <lastmod>2026-04-24</lastmod>
@@ -26,8 +24,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Blog Posts -->
   <url>
     <loc>https://alquranacademy.click/blog-tajweed.html</loc>
     <lastmod>2026-04-21</lastmod>
@@ -46,5 +42,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
 </urlset>
