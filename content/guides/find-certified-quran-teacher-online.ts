@@ -11,7 +11,7 @@ export const findCertifiedQuranTeacherOnline: GuideData = {
   datePublished: "2025-05-01",
   dateModified: "2026-08-26",
   intro:
-    "Finding a certified Quran teacher online in 2025 is easier than ever — but choosing the right one requires knowing exactly what to look for. This step-by-step guide walks you through the entire process, from identifying your learning goals to sitting in your first free trial class.",
+    "Finding a certified Quran teacher online is easier than ever — but choosing the right one requires knowing exactly what to look for. This step-by-step guide walks you through the entire process, from identifying your learning goals to sitting in your first free trial class.",
   toc: [
     { href: "#step1", label: "Step 1 — Define Your Learning Goals" },
     { href: "#step2", label: "Step 2 — Choose an Academy vs a Freelance Tutor" },
@@ -214,7 +214,7 @@ export const findCertifiedQuranTeacherOnline: GuideData = {
     { kind: "p", text: "With a structured process like the one in this guide, most families find their teacher within 3–5 days. The biggest delay is usually hesitation — waiting to contact an academy or postponing the free trial. Once you take that first step, the process moves quickly." },
     { kind: "p", text: "At Al Quran Academy, most families have their first class within 24 hours of messaging us on WhatsApp. We match students to teachers based on age, level, course, gender preference, and timezone — so the process is fast and personal." },
     { kind: "h2", text: "Final Thoughts" },
-    { kind: "p", text: "Finding a certified Quran teacher online in 2025 does not have to be overwhelming. With a clear process — defining your goal, choosing an academy over a freelance platform, verifying credentials, reading reviews, and using the free trial — you can make a confident, well-informed decision in days rather than weeks." },
+    { kind: "p", text: "Finding a certified Quran teacher online does not have to be overwhelming. With a clear process — defining your goal, choosing an academy over a freelance platform, verifying credentials, reading reviews, and using the free trial — you can make a confident, well-informed decision in days rather than weeks." },
     { kind: "p", text: "The most important step is simply to begin. Every day you wait is a day your child could have been building their connection with the Quran." },
     { kind: "p", text: "Al Quran Academy has been guiding families through exactly this journey since 2012. We would be honoured to guide yours too." },
   ],

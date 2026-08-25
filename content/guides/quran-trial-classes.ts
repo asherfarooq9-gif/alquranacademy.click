@@ -32,7 +32,7 @@ export const quranTrialClasses: GuideData = {
       text: "Quick Answer: Yes — most reputable online Quran academies offer a free trial class, typically lasting 1 to 3 days, with no credit card required. The trial lets you meet the teacher, experience a real lesson, and assess quality before committing a single penny.",
     },
     { kind: "h2", id: "do-they-offer-trials", text: "Do Quran Academies Really Offer Free Trials?" },
-    { kind: "p", text: "Yes — and it has become standard practice in 2025. Almost every established online Quran academy offers some form of free trial class before asking you to pay. This is not a promotional gimmick; it is simply the right way to sell an educational service that relies entirely on the relationship between teacher and student." },
+    { kind: "p", text: "Yes — and it has become standard practice. Almost every established online Quran academy offers some form of free trial class before asking you to pay. This is not a promotional gimmick; it is simply the right way to sell an educational service that relies entirely on the relationship between teacher and student." },
     { kind: "p", text: "The logic is straightforward: a qualified, confident academy knows its teachers deliver results. Offering a free trial costs them one session. In return, they get a family who has seen the quality firsthand and is far more likely to enroll — and stay enrolled for months or years." },
     { kind: "p", text: "Academies that do not offer a free trial are telling you something important: they are either not confident enough in their teaching quality to let you see it before paying, or they operate a volume-based model that does not prioritise individual student experience." },
     {
@@ -51,7 +51,7 @@ export const quranTrialClasses: GuideData = {
       ],
     },
     { kind: "h2", id: "how-long", text: "How Long Is a Typical Quran Academy Free Trial?" },
-    { kind: "p", text: "Trial lengths vary between academies. Here is the current standard across the industry in 2025:" },
+    { kind: "p", text: "Trial lengths vary between academies. Here is the current standard across the industry:" },
     {
       kind: "table",
       headers: ["Trial Length", "What It Includes", "Common At"],

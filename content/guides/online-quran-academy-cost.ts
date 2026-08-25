@@ -11,16 +11,16 @@ export const onlineQuranAcademyCost: GuideData = {
   datePublished: "2025-05-01",
   dateModified: "2026-08-26",
   intro:
-    "Online Quran academy fees in 2025 typically range from $30 to $120 per month depending on class frequency, session length, teacher qualifications, and course type. This guide breaks down exactly what you get at each price point — so you never overpay.",
+    "Online Quran academy fees typically range from $30 to $120 per month depending on class frequency, session length, teacher qualifications, and course type. This guide breaks down exactly what you get at each price point — so you never overpay.",
   toc: [],
   blocks: [
     {
       kind: "p",
       text: "One of the most common questions parents and adult learners ask before enrolling is: \"How much does online Quran academy actually cost?\" The answer depends on several factors, but the good news is that online Quran education is significantly more affordable than local in-person tuition — often 40–60% cheaper — with better access to qualified teachers worldwide.",
     },
-    { kind: "p", text: "Whether you are looking for Tajweed classes for your child, a Hifz program, or adult Quran reading lessons, this guide covers everything you need to know about pricing in 2025." },
-    { kind: "h2", text: "Online Quran Academy Pricing Overview (2025)" },
-    { kind: "p", text: "Most online Quran academies structure their fees around number of classes per week and session duration. Here is what the market looks like in 2025:" },
+    { kind: "p", text: "Whether you are looking for Tajweed classes for your child, a Hifz program, or adult Quran reading lessons, this guide covers everything you need to know about pricing." },
+    { kind: "h2", text: "Online Quran Academy Pricing Overview" },
+    { kind: "p", text: "Most online Quran academies structure their fees around number of classes per week and session duration. Here is what the market looks like today:" },
     {
       kind: "table",
       headers: ["Classes Per Week", "Session Length", "Monthly Cost (USD)", "Best For"],
@@ -74,7 +74,7 @@ export const onlineQuranAcademyCost: GuideData = {
     { kind: "p", text: "Price alone should never be your deciding factor. A low monthly fee is meaningless if the teacher is unqualified, lacks patience with children, or cannot communicate clearly in English. The cheapest option often produces the slowest results — or worse, teaches incorrect pronunciation that takes years to unlearn." },
     { kind: "p", text: "Look for academies that offer a free trial (no credit card required) so you can evaluate the teacher's quality before committing any money. This removes all risk from the decision." },
     { kind: "h2", text: "Final Thoughts" },
-    { kind: "p", text: "Online Quran academy costs in 2025 are highly competitive, with quality options available for every budget. The most important investment is not in the cheapest price — it is in a teacher who is qualified, patient, and genuinely committed to your child's progress." },
+    { kind: "p", text: "Online Quran academy costs are highly competitive, with quality options available for every budget. The most important investment is not in the cheapest price — it is in a teacher who is qualified, patient, and genuinely committed to your child's progress." },
     { kind: "p", text: "At Al Quran Academy, we have been helping students across the USA, UK, Canada, Australia, and 15+ other countries since 2012. Our 4.9-star rating from 928+ students reflects the quality and dedication of our teachers." },
     { kind: "p", text: "Start with our free 3-day trial — no credit card, no commitment. Message us on WhatsApp and your child can have their first class within 24 hours." },
   ],
@@ -82,7 +82,7 @@ export const onlineQuranAcademyCost: GuideData = {
     {
       question: "How much does online Quran academy cost per month?",
       answer:
-        "Online Quran academy fees in 2025 range from $30 to $120 per month. Most families pay $50–$80/month for 3 classes per week with 30–45 minute sessions. The exact cost depends on class frequency, session length, and whether you choose a 1-on-1 or group format.",
+        "Online Quran academy fees range from $30 to $120 per month. Most families pay $50–$80/month for 3 classes per week with 30–45 minute sessions. The exact cost depends on class frequency, session length, and whether you choose a 1-on-1 or group format.",
     },
     {
       question: "Is there a free trial before I pay?",
