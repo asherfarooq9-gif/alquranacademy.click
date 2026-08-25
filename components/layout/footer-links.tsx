@@ -36,6 +36,8 @@ const COLUMNS = [
       { href: "/find-certified-quran-teacher-online", label: "Find a Certified Teacher" },
       { href: "/online-quran-academy-cost", label: "Pricing Guide" },
       { href: "/quran-teacher-qualifications", label: "Teacher Qualifications" },
+      { href: "/female-quran-teacher-online", label: "Female Quran Teacher" },
+      { href: "/online-quran-classes-for-kids", label: "Classes for Kids" },
     ],
   },
 ];
