@@ -2,8 +2,6 @@ import {
   ADDRESS_COUNTRY,
   ADDRESS_LOCALITY,
   FOUNDING_DATE,
-  RATING_VALUE,
-  REVIEW_COUNT_RAW,
   SITE_NAME,
   SITE_URL,
   WHATSAPP_URL,
@@ -35,6 +33,11 @@ export function buildOrganizationSchema(): JsonLd {
       availableLanguage: ["English", "Urdu", "Arabic"],
     },
     sameAs: [WHATSAPP_URL],
+    /**
+     * No aggregateRating here on purpose: Google requires review-schema
+     * markup to reflect genuine, publicly verifiable reviews. Add this back
+     * once real Trustpilot/Google/Facebook reviews exist to source it from.
+     */
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Online Quran Courses",
@@ -70,12 +73,6 @@ export function buildOrganizationSchema(): JsonLd {
           },
         },
       ],
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: RATING_VALUE,
-      reviewCount: String(REVIEW_COUNT_RAW),
-      bestRating: "5",
     },
   };
 }
