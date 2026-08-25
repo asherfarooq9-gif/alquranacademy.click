@@ -302,6 +302,8 @@ export function CoverflowCarousel({
                 <img
                   src={slide.src}
                   alt={slide.alt}
+                  width={800}
+                  height={800}
                   draggable={false}
                   className="h-full w-full select-none object-cover"
                 />

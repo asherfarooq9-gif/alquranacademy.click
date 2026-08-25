@@ -3,13 +3,13 @@ import type { GuideData } from "./types";
 export const bestQuranAcademyForBeginners: GuideData = {
   slug: "best-quran-academy-for-beginners",
   path: "/best-quran-academy-for-beginners",
-  metaTitle: "What's the Best Quran Academy for Beginners? (2025 Honest Guide)",
+  metaTitle: "What's the Best Quran Academy for Beginners? (Honest Guide)",
   metaDescription:
     "Looking for the best Quran academy for beginners? Learn the 7 qualities that separate great academies from average ones — and how to find your perfect match with a free trial.",
-  h1: "What's the Best Quran Academy for Beginners? (2025 Honest Guide)",
+  h1: "What's the Best Quran Academy for Beginners? (Honest Guide)",
   meta: "By Al Quran Academy | May 2025 | 10 min read",
   datePublished: "2025-05-03",
-  dateModified: "2025-05-03",
+  dateModified: "2026-08-26",
   intro:
     "The best Quran academy for beginners is not necessarily the most famous or the most expensive. It is the one that starts exactly where you are, pairs you with a patient and qualified teacher, and gives you a genuine free trial before asking for a single payment. This guide tells you exactly what to look for.",
   toc: [

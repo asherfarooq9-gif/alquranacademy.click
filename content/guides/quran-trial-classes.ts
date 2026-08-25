@@ -8,13 +8,13 @@ import type { GuideData } from "./types";
 export const quranTrialClasses: GuideData = {
   slug: "quran_trial_classes",
   path: "/quran_trial_classes",
-  metaTitle: "Do Quran Academies Offer Trial Classes? (What to Expect in 2025)",
+  metaTitle: "Do Quran Academies Offer Trial Classes? (What to Expect)",
   metaDescription:
     "Yes — most reputable Quran academies offer free trial classes. Learn what's included, how long they last, and what questions to ask.",
-  h1: "Do Quran Academies Offer Trial Classes? (What to Expect in 2025)",
+  h1: "Do Quran Academies Offer Trial Classes? (What to Expect)",
   meta: "By Al Quran Academy | May 2025 | 8 min read",
   datePublished: "2025-05-03",
-  dateModified: "2025-05-03",
+  dateModified: "2026-08-26",
   intro:
     "If you are considering enrolling your child — or yourself — in online Quran classes, a free trial is the single most important step in the decision. This guide explains exactly what a Quran trial class includes, how long it lasts, what questions to ask, and the red flags that tell you to look elsewhere.",
   toc: [

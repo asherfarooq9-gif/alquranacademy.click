@@ -3,13 +3,13 @@ import type { GuideData } from "./types";
 export const onlineQuranAcademyCost: GuideData = {
   slug: "online-quran-academy-cost",
   path: "/online-quran-academy-cost",
-  metaTitle: "How Much Does Online Quran Academy Cost? (2025 Pricing Guide)",
+  metaTitle: "How Much Does Online Quran Academy Cost? (Pricing Guide)",
   metaDescription:
-    "Wondering how much online Quran academy costs? Compare 2025 pricing from $30–$120/month. Learn what affects fees, how to get a free trial, and find the best value.",
-  h1: "How Much Does Online Quran Academy Cost? (2025 Complete Pricing Guide)",
-  meta: "By Al Quran Academy | Updated May 2025 | 8 min read",
+    "Wondering how much online Quran academy costs? Compare current pricing from $30–$120/month. Learn what affects fees, how to get a free trial, and find the best value.",
+  h1: "How Much Does Online Quran Academy Cost? (Complete Pricing Guide)",
+  meta: "By Al Quran Academy | Updated August 2026 | 8 min read",
   datePublished: "2025-05-01",
-  dateModified: "2025-05-01",
+  dateModified: "2026-08-26",
   intro:
     "Online Quran academy fees in 2025 typically range from $30 to $120 per month depending on class frequency, session length, teacher qualifications, and course type. This guide breaks down exactly what you get at each price point — so you never overpay.",
   toc: [],
