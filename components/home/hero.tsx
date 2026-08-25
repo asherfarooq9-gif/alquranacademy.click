@@ -3,6 +3,7 @@ import Image from "next/image";
 import { WhatsAppCTA } from "@/components/cta/whatsapp-cta";
 import { Reveal } from "@/components/shared/reveal";
 import { StatCounter } from "@/components/shared/stat-counter";
+import { STUDENT_COUNT_RAW } from "@/lib/constants";
 
 /** Home page hero — split text/photo layout, replaces the old site's three.js hero canvas. */
 export function Hero() {
@@ -28,7 +29,7 @@ export function Hero() {
           <Reveal delayMs={140}>
             <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-muted-foreground lg:mx-0">
               Learn Quran online with 1-on-1 classes in Tajweed, Hifz &amp; Tafsir. Trusted by{" "}
-              <strong className="text-foreground">928+ students</strong> across 15+ countries
+              <strong className="text-foreground">50+ students</strong> across 15+ countries
               since 2012. Free 3-day trial — no commitment required.
             </p>
           </Reveal>
@@ -47,7 +48,7 @@ export function Hero() {
 
           <Reveal delayMs={260}>
             <div className="mt-12 flex justify-center gap-8 sm:gap-12 lg:justify-start">
-              <StatCounter target={928} suffix="+" label="Students" />
+              <StatCounter target={STUDENT_COUNT_RAW} suffix="+" label="Students" />
               <StatCounter target={15} suffix="+" label="Countries" />
               <StatCounter target={4.9} decimal label="Rating /5" />
             </div>

@@ -13,7 +13,7 @@ interface StatCounterProps {
   durationMs?: number;
 }
 
-/** Count-up stat used for the 928+/15+/4.9 hero and footer stats. */
+/** Count-up stat used for the 50+/15+/4.9 hero and footer stats. */
 export function StatCounter({
   target,
   suffix = "",

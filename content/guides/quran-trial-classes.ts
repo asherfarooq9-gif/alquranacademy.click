@@ -144,7 +144,7 @@ export const quranTrialClasses: GuideData = {
         "First class within 24 hours — message us on WhatsApp and we schedule immediately",
       ],
     },
-    { kind: "p", text: "We have been doing this since 2012 — serving 928+ students across 15+ countries with a 4.9-star average rating. Our free trial is not a promotional tactic. It is how we have always operated, because we are confident you will see the quality for yourself." },
+    { kind: "p", text: "We have been doing this since 2012 — serving 50+ students across 15+ countries with a 4.9-star average rating. Our free trial is not a promotional tactic. It is how we have always operated, because we are confident you will see the quality for yourself." },
     {
       kind: "checklist",
       title: "Post-Trial Checklist — Before You Enroll",

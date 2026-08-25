@@ -16,7 +16,7 @@ export function CtaSection() {
             Begin Your <em className="text-accent not-italic">Quran Journey</em> Today
           </h2>
           <p className="mt-5 text-base leading-relaxed text-white/75">
-            Join 928+ students learning Quran online with certified scholars. Your first 3 days
+            Join 50+ students learning Quran online with certified scholars. Your first 3 days
             are completely free — no commitment required.
           </p>
           <div className="mt-8 flex justify-center">

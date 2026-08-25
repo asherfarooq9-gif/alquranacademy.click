@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: `${SITE_NAME} | ${SITE_TAGLINE}`,
   description:
-    "Learn Quran online with certified qualified teachers. 1-on-1 classes in Tajweed, Hifz & Tafsir for kids and adults. 928+ students in 15+ countries since 2012. Free 3-day trial — no credit card.",
+    "Learn Quran online with certified qualified teachers. 1-on-1 classes in Tajweed, Hifz & Tafsir for kids and adults. 50+ students in 15+ countries since 2012. Free 3-day trial — no credit card.",
   robots: "index, follow",
 };
 

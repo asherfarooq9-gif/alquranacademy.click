@@ -21,13 +21,12 @@ export const FOUNDING_DATE = "2012";
 export const ADDRESS_LOCALITY = "Rawalpindi";
 export const ADDRESS_COUNTRY = "PK";
 
-export const STUDENT_COUNT = "928+";
-export const STUDENT_COUNT_RAW = 928;
+export const STUDENT_COUNT = "50+";
+export const STUDENT_COUNT_RAW = 50;
 export const COUNTRY_COUNT = "15+";
 export const COUNTRY_COUNT_RAW = 15;
 export const RATING_VALUE = "4.9";
 export const RATING_VALUE_RAW = 4.9;
-export const REVIEW_COUNT_RAW = 928;
 
 export const NAV_LINKS = [
   { href: "/#services", label: "Courses" },

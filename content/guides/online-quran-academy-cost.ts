@@ -46,7 +46,7 @@ export const onlineQuranAcademyCost: GuideData = {
     { kind: "h3", text: "4. Session Length" },
     { kind: "p", text: "30-minute sessions are standard for children aged 5–10. Older students and adults typically benefit from 45–60 minute sessions, which cost proportionally more but provide greater depth per lesson." },
     { kind: "h3", text: "5. Geographic Location of the Academy" },
-    { kind: "p", text: "Academies based in Pakistan and Egypt — where many of the world's most qualified Quran scholars reside — can offer highly competitive rates while maintaining exceptional quality. Al Quran Academy, based in Rawalpindi, Pakistan, has served 928+ students across 15+ countries since 2012, offering premium teaching at accessible prices." },
+    { kind: "p", text: "Academies based in Pakistan and Egypt — where many of the world's most qualified Quran scholars reside — can offer highly competitive rates while maintaining exceptional quality. Al Quran Academy, based in Rawalpindi, Pakistan, has served 50+ students across 15+ countries since 2012, offering premium teaching at accessible prices." },
     { kind: "h2", text: "What Is Included in the Monthly Fee?" },
     { kind: "p", text: "When comparing academies, always ask what is included. At Al Quran Academy, every monthly fee covers:" },
     {
@@ -75,7 +75,7 @@ export const onlineQuranAcademyCost: GuideData = {
     { kind: "p", text: "Look for academies that offer a free trial (no credit card required) so you can evaluate the teacher's quality before committing any money. This removes all risk from the decision." },
     { kind: "h2", text: "Final Thoughts" },
     { kind: "p", text: "Online Quran academy costs are highly competitive, with quality options available for every budget. The most important investment is not in the cheapest price — it is in a teacher who is qualified, patient, and genuinely committed to your child's progress." },
-    { kind: "p", text: "At Al Quran Academy, we have been helping students across the USA, UK, Canada, Australia, and 15+ other countries since 2012. Our 4.9-star rating from 928+ students reflects the quality and dedication of our teachers." },
+    { kind: "p", text: "At Al Quran Academy, we have been helping students across the USA, UK, Canada, Australia, and 15+ other countries since 2012. Our 4.9-star rating from 50+ students reflects the quality and dedication of our teachers." },
     { kind: "p", text: "Start with our free 3-day trial — no credit card, no commitment. Message us on WhatsApp and your child can have their first class within 24 hours." },
   ],
   faqs: [
@@ -107,5 +107,5 @@ export const onlineQuranAcademyCost: GuideData = {
   ],
   ctaTitle: "Try Al Quran Academy — Free for 3 Days",
   ctaText:
-    "Join 928+ students across 15+ countries. 1-on-1 classes in Tajweed, Hifz, and Tafsir with certified teachers. No credit card. No commitment.",
+    "Join 50+ students across 15+ countries. 1-on-1 classes in Tajweed, Hifz, and Tafsir with certified teachers. No credit card. No commitment.",
 };

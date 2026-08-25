@@ -252,7 +252,7 @@ export const findCertifiedQuranTeacherOnline: GuideData = {
   ],
   ctaTitle: "Ready to Find Your Certified Quran Teacher?",
   ctaText:
-    "Al Quran Academy has been connecting families with certified, qualified Quran teachers since 2012. 928+ students. 15+ countries. 4.9-star rating. Free 3-day trial — no credit card, no commitment.",
+    "Al Quran Academy has been connecting families with certified, qualified Quran teachers since 2012. 50+ students. 15+ countries. 4.9-star rating. Free 3-day trial — no credit card, no commitment.",
   howTo: {
     name: "How to Find a Certified Quran Teacher Online",
     description: "Step-by-step process to find, evaluate, and enroll with a certified Quran teacher online",

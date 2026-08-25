@@ -101,7 +101,7 @@ export const bestQuranAcademyForBeginners: GuideData = {
         {
           label: "Quality 07",
           title: "Proven Track Record With Students Like Yours",
-          text: "Years of operation, student numbers, and country reach all signal that an academy has successfully guided many beginners through the learning journey. But the most useful signal is specific testimonials from parents or students who started as complete beginners and can describe their child's progress. An academy that has been operating since 2012 with 928+ students across 15+ countries has demonstrably worked for many beginners — that is a trackable, verifiable record.",
+          text: "Years of operation, student numbers, and country reach all signal that an academy has successfully guided many beginners through the learning journey. But the most useful signal is specific testimonials from parents or students who started as complete beginners and can describe their child's progress. An academy that has been operating since 2012 with 50+ students across 15+ countries has demonstrably worked for many beginners — that is a trackable, verifiable record.",
           note: "Why it matters: Any academy can claim to be beginner-friendly. Only an academy with a long history of serving beginners can prove it.",
         },
       ],
@@ -138,7 +138,7 @@ export const bestQuranAcademyForBeginners: GuideData = {
     },
     { kind: "p", text: "At Al Quran Academy, we serve both groups with dedicated teachers who specialise in their age group. A teacher who excels with 6-year-olds and a teacher who works well with adult beginners have very different approaches — and we match accordingly." },
     { kind: "h2", id: "mistakes", text: "Common Mistakes Beginners Make When Choosing an Academy" },
-    { kind: "p", text: "After serving 928+ students since 2012, we have seen patterns in why some families struggle to find the right academy. The most common mistakes:" },
+    { kind: "p", text: "After serving 50+ students since 2012, we have seen patterns in why some families struggle to find the right academy. The most common mistakes:" },
     { kind: "h3", text: "1. Choosing based on price alone" },
     { kind: "p", text: "The cheapest academy is almost never the best for beginners. Very low pricing ($5–$15/month) signals unvetted teachers, no curriculum structure, and zero accountability. A slightly higher fee at a reputable academy delivers dramatically better results and long-term value. Think of it as the difference between fast food and a proper meal — the price difference is small, but the impact is completely different." },
     { kind: "h3", text: "2. Not using the free trial" },
@@ -178,7 +178,7 @@ export const bestQuranAcademyForBeginners: GuideData = {
     {
       question: "What is the best Quran academy for beginners?",
       answer:
-        "The best Quran academy for beginners is one that starts from Noorani Qaida, uses teachers experienced with first-time learners, offers 1-on-1 classes, provides a genuine free trial with no credit card, and sends regular progress reports. Al Quran Academy has served 928+ beginners across 15+ countries since 2012 with a 4.9-star rating — and we offer a free 3-day trial so you can verify the quality yourself before paying anything.",
+        "The best Quran academy for beginners is one that starts from Noorani Qaida, uses teachers experienced with first-time learners, offers 1-on-1 classes, provides a genuine free trial with no credit card, and sends regular progress reports. Al Quran Academy has served 50+ beginners across 15+ countries since 2012 with a 4.9-star rating — and we offer a free 3-day trial so you can verify the quality yourself before paying anything.",
     },
     {
       question: "Where do complete beginners start learning Quran?",
@@ -213,5 +213,5 @@ export const bestQuranAcademyForBeginners: GuideData = {
   ],
   ctaTitle: "Start Your Beginner Journey — Free for 3 Days",
   ctaText:
-    "928+ students across 15+ countries have started exactly where you are now. Join them. Three full trial classes, certified teacher, zero cost, zero commitment.",
+    "50+ students across 15+ countries have started exactly where you are now. Join them. Three full trial classes, certified teacher, zero cost, zero commitment.",
 };

@@ -19,7 +19,7 @@ export function buildOrganizationSchema(): JsonLd {
     url: SITE_URL,
     logo: `${SITE_URL}/images/logo.png`,
     description:
-      "Learn Quran online with certified qualified teachers. 1-on-1 classes in Tajweed, Hifz, and Tafsir for kids and adults. Free 3-day trial. 928+ students in 15+ countries since 2012.",
+      "Learn Quran online with certified qualified teachers. 1-on-1 classes in Tajweed, Hifz, and Tafsir for kids and adults. Free 3-day trial. 50+ students in 15+ countries since 2012.",
     foundingDate: FOUNDING_DATE,
     address: {
       "@type": "PostalAddress",

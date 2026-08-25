@@ -86,7 +86,7 @@ export default function PricingPage() {
             />
           </div>
           <p className="mt-5 text-xs text-white/50">
-            928+ students enrolled · 15+ countries · Rated 4.9/5
+            50+ students enrolled · 15+ countries · Rated 4.9/5
           </p>
         </div>
       </section>
