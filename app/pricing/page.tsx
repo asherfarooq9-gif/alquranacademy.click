@@ -80,7 +80,10 @@ export default function PricingPage() {
             No credit card. No commitment. Just quality Quran education from day one.
           </p>
           <div className="mt-8 flex justify-center">
-            <WhatsAppCTA label="Claim Free Trial" />
+            <WhatsAppCTA
+              label="Claim Free Trial"
+              message="Hi! I saw your pricing page and would like to claim my free 3-day trial."
+            />
           </div>
           <p className="mt-5 text-xs text-white/50">
             928+ students enrolled · 15+ countries · Rated 4.9/5

@@ -10,6 +10,11 @@ export const SITE_TAGLINE = "Online Quran Academy | Learn with Certified Scholar
 export const WHATSAPP_NUMBER = "923430565179";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const WHATSAPP_DISPLAY = "+92 343 0565179";
+
+/** Pre-fills the WhatsApp chat so visitors don't land on a blank conversation. */
+export function buildWhatsAppUrl(message: string): string {
+  return `${WHATSAPP_URL}?text=${encodeURIComponent(message)}`;
+}
 export const CONTACT_EMAIL = "alquranacademy685@gmail.com";
 
 export const FOUNDING_DATE = "2012";

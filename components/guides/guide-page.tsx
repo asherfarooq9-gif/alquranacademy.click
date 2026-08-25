@@ -43,7 +43,10 @@ export function GuidePage({ data }: { data: GuideData }) {
             <h3 className="font-heading text-2xl text-white">{data.ctaTitle}</h3>
             <p className="mt-3 text-sm text-white/75">{data.ctaText}</p>
             <div className="mt-6 flex justify-center">
-              <WhatsAppCTA label="Start Free Trial" />
+              <WhatsAppCTA
+              label="Start Free Trial"
+              message={`Hi! I read your guide "${data.h1}" and would like to claim my free 3-day trial.`}
+            />
             </div>
           </div>
 

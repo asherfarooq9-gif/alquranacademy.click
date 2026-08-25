@@ -48,7 +48,10 @@ export default function FaqPage() {
                 Message us on WhatsApp — we reply within minutes, 24/7.
               </p>
               <div className="mt-6 flex justify-center">
-                <WhatsAppCTA label="Chat on WhatsApp" />
+                <WhatsAppCTA
+                  label="Chat on WhatsApp"
+                  message="Hi! I have a question that wasn't covered in your FAQ."
+                />
               </div>
               <div className="mt-5 flex flex-wrap justify-center gap-x-6 gap-y-1 text-xs text-white/60">
                 <span>✓ Reply within minutes</span>

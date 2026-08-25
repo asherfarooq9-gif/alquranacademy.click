@@ -67,7 +67,10 @@ export function PlanCard({ plan, currency }: PlanCardProps) {
       </ul>
 
       <div className="mt-auto flex justify-center pt-2">
-        <WhatsAppCTA label="Start Free Trial" />
+        <WhatsAppCTA
+          label="Start Free Trial"
+          message={`Hi! I'm interested in the ${plan.name} plan and would like to claim my free 3-day trial.`}
+        />
       </div>
     </div>
   );
