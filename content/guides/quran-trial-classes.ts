@@ -10,7 +10,7 @@ export const quranTrialClasses: GuideData = {
   path: "/quran_trial_classes",
   metaTitle: "Do Quran Academies Offer Trial Classes? (What to Expect in 2025)",
   metaDescription:
-    "Yes — most reputable Quran academies offer free trial classes. Learn what's included, how long they last, what questions to ask, and how to get the most from yours.",
+    "Yes — most reputable Quran academies offer free trial classes. Learn what's included, how long they last, and what questions to ask.",
   h1: "Do Quran Academies Offer Trial Classes? (What to Expect in 2025)",
   meta: "By Al Quran Academy | May 2025 | 8 min read",
   datePublished: "2025-05-03",

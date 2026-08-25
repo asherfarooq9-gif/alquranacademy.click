@@ -29,11 +29,20 @@ const COLUMNS = [
       { href: "/quran_trial_classes", label: "How Trials Work" },
     ],
   },
+  {
+    title: "Guides",
+    links: [
+      { href: "/best-quran-academy-for-beginners", label: "Best Academy for Beginners" },
+      { href: "/find-certified-quran-teacher-online", label: "Find a Certified Teacher" },
+      { href: "/online-quran-academy-cost", label: "Pricing Guide" },
+      { href: "/quran-teacher-qualifications", label: "Teacher Qualifications" },
+    ],
+  },
 ];
 
 export function FooterLinks() {
   return (
-    <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+    <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
       {COLUMNS.map((column) => (
         <div key={column.title}>
           <h4 className="text-sm font-semibold text-white">{column.title}</h4>

@@ -15,13 +15,13 @@ export interface PageMetadataInput {
 const DEFAULT_OG_IMAGE = "/images/og-image.jpg";
 
 /**
- * Builds the real reachable URL for a route path under `output: 'export'` +
- * `trailingSlash: false`: the home page serves at "/", every other route serves
- * as "<path>.html". Used for canonical tags and JSON-LD `url`/`mainEntityOfPage`
- * so neither ever points at a dead path (e.g. the old site's nonexistent /blog/<slug>/).
+ * Builds the real reachable URL for a route path on the live Vercel deployment:
+ * the home page serves at "/", every other route serves at "<path>" (no
+ * extension — Vercel runs the app natively, it does not serve flat .html files).
+ * Used for canonical tags and JSON-LD `url`/`mainEntityOfPage`.
  */
 export function buildCanonicalUrl(path: string): string {
-  return path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}.html`;
+  return path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
 }
 
 /**

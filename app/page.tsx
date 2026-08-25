@@ -9,9 +9,9 @@ import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Al Quran Academy | Online Quran Classes | Tajweed, Hifz & Tafsir | Free Trial",
+  title: "Al Quran Academy | Online Quran Classes | Free Trial",
   description:
-    "Learn Quran online with certified qualified teachers. 1-on-1 classes in Tajweed, Hifz & Tafsir for kids and adults. 928+ students in 15+ countries since 2012. Free 3-day trial — no credit card.",
+    "Learn Quran online with certified teachers. 1-on-1 Tajweed, Hifz & Tafsir classes for kids and adults. Free 3-day trial — no credit card required.",
   path: "/",
 });
 

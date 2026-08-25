@@ -4,7 +4,7 @@
  */
 
 export const SITE_NAME = "Al Quran Academy";
-export const SITE_URL = "https://alquranacademy.click";
+export const SITE_URL = "https://www.alquranacademy.click";
 export const SITE_TAGLINE = "Online Quran Academy | Learn with Certified Scholars";
 
 export const WHATSAPP_NUMBER = "923430565179";
