@@ -3,7 +3,7 @@ import type { GuideData } from "./types";
 export const femaleQuranTeacherOnline: GuideData = {
   slug: "female-quran-teacher-online",
   path: "/female-quran-teacher-online",
-  metaTitle: "Female Quran Teacher Online for Girls & Women | Al Quran Academy",
+  metaTitle: "Female Quran Teacher Online for Girls & Women",
   metaDescription:
     "Looking for a female Quran teacher online? Learn what to look for, the questions to ask, and how to get matched with a qualified female teacher for your daughter or yourself.",
   h1: "Female Quran Teacher Online for Girls & Women",

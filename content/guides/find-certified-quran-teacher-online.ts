@@ -3,10 +3,10 @@ import type { GuideData } from "./types";
 export const findCertifiedQuranTeacherOnline: GuideData = {
   slug: "find-certified-quran-teacher-online",
   path: "/find-certified-quran-teacher-online",
-  metaTitle: "How to Find a Certified Quran Teacher Online (Step-by-Step Guide)",
+  metaTitle: "How to Find a Certified Quran Teacher Online (Step-by-Step)",
   metaDescription:
     "Learn exactly how to find a certified Quran teacher online. Step-by-step process, questions to ask, red flags to avoid, and how to get started with a free trial today.",
-  h1: "How to Find a Certified Quran Teacher Online (Step-by-Step Guide)",
+  h1: "How to Find a Certified Quran Teacher Online (Step-by-Step)",
   meta: "By Al Quran Academy | Updated August 2026 | 10 min read",
   datePublished: "2025-05-01",
   dateModified: "2026-08-26",

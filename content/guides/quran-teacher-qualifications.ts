@@ -3,10 +3,10 @@ import type { GuideData } from "./types";
 export const quranTeacherQualifications: GuideData = {
   slug: "quran-teacher-qualifications",
   path: "/quran-teacher-qualifications",
-  metaTitle: "What Qualifications Should My Quran Teacher Have? (Complete Guide)",
+  metaTitle: "What Qualifications Should My Quran Teacher Have?",
   metaDescription:
     "Learn what qualifications to look for in an online Quran teacher. Discover the key credentials, red flags to avoid, and how to verify a teacher's expertise before enrolling.",
-  h1: "What Qualifications Should My Quran Teacher Have? (Complete Guide)",
+  h1: "What Qualifications Should My Quran Teacher Have?",
   meta: "By Al Quran Academy | Updated May 2025 | 9 min read",
   datePublished: "2025-05-01",
   dateModified: "2025-05-01",
